@@ -29,13 +29,15 @@ public class GridManager : MonoBehaviour
 
     public bool playerIsOnGridSide(Vector3 player_pos)
     {
+        Vector2Int grid_pos = playerToGridPosition(player_pos);
+
         int in_x = 0;
         int in_z = 0;
-        if(player_pos.x < dim_x && player_pos.x >= 0)
+        if(grid_pos.x < dim_x && grid_pos.x >= 0)
         {
             in_x = 1;
         } 
-        if(player_pos.z < dim_z && player_pos.z >= 0)
+        if(grid_pos.y < dim_z && grid_pos.y >= 0)
         {
             in_z = 1;
         } 
@@ -82,6 +84,11 @@ public class GridManager : MonoBehaviour
             }
         }
 
+        for(int i = 0; i < arr_len; ++i)
+        {
+            Debug.Log($"0 : {idx[i, 0]}, 1 : {idx[i, 1]}");
+        }
+
         return idx;
     }
     private int getPlayerSide(Vector3 player_position)
@@ -126,8 +133,8 @@ public class GridManager : MonoBehaviour
 
     public Vector2Int playerToGridPosition(Vector3 player_pos)
     {
-        int x = (int) player_pos.x;
-        int z = (int) player_pos.z;
+        int x = Mathf.RoundToInt(player_pos.x);
+        int z = Mathf.RoundToInt(player_pos.z);
         int side = getPlayerSide(player_pos);
 
         switch(side)
