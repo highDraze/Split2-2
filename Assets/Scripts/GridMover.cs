@@ -11,7 +11,6 @@ public class GridMover : MonoBehaviour
     public static event DStartMove StartMove;
     public delegate void DEndMove();
     public static event DStartMove EndMove;
-    private List<TileSelector> tiles = new List<TileSelector>();
 
     public GameObject TileToSpawn;
 
@@ -48,7 +47,7 @@ public class GridMover : MonoBehaviour
     }
 
 
-    public void MoveTiles(TileSelector[] tiles, Direction direction)
+    public void MoveTiles(IEnumerable<TileSelector> tiles, Direction direction)
     {
         if (tiles == null) return;
 
@@ -75,13 +74,18 @@ public class GridMover : MonoBehaviour
         {
             tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
         }
-        StartCoroutine(MoveCoroutine());
+        StartCoroutine(MoveCoroutine(tiles));
     }
 
-    IEnumerator MoveCoroutine()
+    IEnumerator MoveCoroutine(IEnumerable<TileSelector> tiles)
     {
         StartMove?.Invoke();
         yield return new WaitForSeconds(MoveDuration);
         EndMove?.Invoke();
+
+        foreach (TileSelector tile in tiles)
+        {
+            tile.isMovable = true;
+        }
     }
 }

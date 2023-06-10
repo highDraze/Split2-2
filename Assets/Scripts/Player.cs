@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -17,38 +18,51 @@ public class Player : MonoBehaviour
 
         if (isDM && Input.GetKeyDown(KeyCode.Space))
         {
-            GridManager manager = FindObjectOfType<GridManager>();
-            GridMover mover = FindObjectOfType<GridMover>();
-            GridSpawner spawner = FindObjectOfType<GridSpawner>();
-
-            int side = manager.getPlayerSide(transform.position);
-
-            Vector2Int vector2Int = manager.playerToGridPosition(transform.position);
-            switch (side)
-            {
-                case 0:
-                    vector2Int.y = -1;
-                    break;
-                case 1:
-                    vector2Int.x = spawner.dim_x + 1;
-                    break;
-                case 2:
-                    vector2Int.y = spawner.dim_z + 1;
-                    break;
-                case 3:
-                    vector2Int.x = -1;
-                    break;
-                default:
-                    Debug.Log("Side not in [0,4]");
-                    break;
-            }
-
-
-            TileSelector newTile = mover.InstantiateNewTile(vector2Int.x, vector2Int.y);
-
-            TileSelector[] tiles = manager.moveGrid(transform.position, newTile);
-            GridMover.Direction direction = (GridMover.Direction)manager.getPlayerSide(transform.position);
-            FindObjectOfType<GridMover>().MoveTiles(tiles, direction);
+            InstantiateTileAndMove();
         }
+    }
+
+    void InstantiateTileAndMove()
+    {
+        GridManager manager = FindObjectOfType<GridManager>();
+        GridMover mover = FindObjectOfType<GridMover>();
+        GridSpawner spawner = FindObjectOfType<GridSpawner>();
+
+        int side = manager.getPlayerSide(transform.position);
+
+        Vector2Int vector2Int = manager.playerToGridPosition(transform.position);
+        switch (side)
+        {
+            case 0:
+                vector2Int.y = -1;
+                break;
+            case 1:
+                vector2Int.x = spawner.dim_x;
+                break;
+            case 2:
+                vector2Int.y = spawner.dim_z;
+                break;
+            case 3:
+                vector2Int.x = -1;
+                break;
+            default:
+                Debug.Log("Side not in [0,4]");
+                break;
+        }
+
+
+        TileSelector newTile = mover.InstantiateNewTile(vector2Int.x, vector2Int.y);
+
+        TileSelector[] tiles = manager.moveGrid(transform.position, newTile);
+        if (tiles == null)
+        {
+            Debug.Log("Cant move");
+            Destroy(newTile);
+            return;
+        }
+        List<TileSelector> list = new List<TileSelector>(tiles);
+        list.Add(newTile);
+        GridMover.Direction direction = (GridMover.Direction)manager.getPlayerSide(transform.position);
+        FindObjectOfType<GridMover>().MoveTiles(list, direction);
     }
 }
