@@ -17,16 +17,14 @@ public class GridMover : MonoBehaviour
     public enum Direction
     {
         UP,
-        RIGHT,
+        LEFT,
         DOWN,
-        LEFT
+        RIGHT
     }
 
     void Start()
     {
-        // TODO remove that
-
-        TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
+        /*TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
 
         for (int i=0; i<8; i += 1)
         {
@@ -34,13 +32,15 @@ public class GridMover : MonoBehaviour
         }
 
 
-        MoveTiles(tiles.ToArray(), Direction.DOWN);
+        MoveTiles(tiles.ToArray(), Direction.DOWN);*/
 
     }
 
 
     public void MoveTiles(TileSelector[] tiles, Direction direction)
     {
+        if (tiles == null) return;
+
         Vector3 toOffset = Vector3.zero;
         switch(direction)
         {
@@ -58,9 +58,10 @@ public class GridMover : MonoBehaviour
                 break;
         }
 
+        Debug.Log($"move direction ${direction}");
+
         foreach(TileSelector tile in tiles)
         {
-            Debug.Log($"moving {tile.name}");
             tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
         }
         StartCoroutine(MoveCoroutine());

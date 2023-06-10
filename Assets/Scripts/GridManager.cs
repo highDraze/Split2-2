@@ -69,7 +69,8 @@ public class GridManager : MonoBehaviour
 
         return idx;
     }
-    private int getPlayerSide(Vector3 player_position)
+
+    public int getPlayerSide(Vector3 player_position)
     {
         /* 
         0: S
@@ -108,6 +109,7 @@ public class GridManager : MonoBehaviour
 
         return side;
     }
+
     public TileSelector[] playerInteraction(Vector3 player_position)
     {   
         int side = getPlayerSide(player_position);
