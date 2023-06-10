@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ToonMaterial
+  m_Name: Sand
   m_Shader: {fileID: -6465566751694194690, guid: d1144c4350d2324448b27d686021ffc7,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture:
-        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 109122309ef68b84f87b54e43d063fdf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -74,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 61c21f12faf4eb546b3162b9af356893, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6e63a834f8972cb43afbd9f127ff0636, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -111,6 +111,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlbedoStrength: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -129,7 +130,7 @@ Material:
     - _Glossiness: 100
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _NormalStrength: 0.491
+    - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -137,9 +138,9 @@ Material:
     - _ReceiveShadows: 1
     - _RimAmount: 0.343
     - _RimThickness: 1
-    - _RimThreshold: 0.39
-    - _ShadowShift: 0.896
-    - _ShadowStep: -0.242
+    - _RimThreshold: 1.41
+    - _ShadowShift: 0.853
+    - _ShadowStep: -0.045
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -149,15 +150,15 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 0}
-    - _AmbientColor: {r: 0.18431368, g: 0.1568627, b: 0.3607843, a: 0}
+    - _AlbedoColor: {r: 0.9245283, g: 0.7740615, b: 0.47447488, a: 0}
+    - _AmbientColor: {r: 0.5283019, g: 0.14056313, b: 0.06678532, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.24442266, g: 0.7264151, b: 0.32791737, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightColor: {r: 0.98039216, g: 0.79253775, b: 0.10588233, a: 0}
     - _NormalStrength: {r: 0.1, g: 0.1, b: 0.1, a: 0}
-    - _RimColor: {r: 0.8773585, g: 0.824717, b: 0.78962266, a: 0}
+    - _RimColor: {r: 1, g: 0.59458566, b: 0.3339622, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.9528302, g: 0.8845141, b: 0.8845141, a: 0}
+    - _SpecularColor: {r: 1, g: 0.92457765, b: 0.71132076, a: 0}
     - _Vector4: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
