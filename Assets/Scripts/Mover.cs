@@ -29,14 +29,11 @@ public class Mover : MonoBehaviour
 
     public void SetInputVector(InputAction.CallbackContext context)
     {
-        Debug.Log("InputVector");
         inputVector = context.ReadValue<Vector2>();
     }
 
     void Update()
     {
-        Debug.Log("Update");
-        Debug.Log(inputVector);
         moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= MoveSpeed;

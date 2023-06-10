@@ -4,6 +4,7 @@ using UnityEngine;
 # if UNITY_EDITOR
     using UnityEditor;
 # endif
+[ExecuteInEditMode]
 public class TileSelector : MonoBehaviour
 {
     public enum TileTypes { 
@@ -29,8 +30,12 @@ public class TileSelector : MonoBehaviour
     public TileTypes tiletype;
     public Rotation rotation;
     
-    public GameObject[] Tiles = new GameObject[5]; 
+    public GameObject[] Tiles = new GameObject[5];
 
+
+    private TileTypes _lastType;
+    private Rotation _lastRotation;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,13 @@ public class TileSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //DANGER - UPDATING IN EDITOR AS WELL!!!
+        if (tiletype != _lastType || rotation != _lastRotation)
+        {
+            ChangeTileType();
+            _lastType = tiletype;
+            _lastRotation = rotation;
+        }
     }
 
     public void 
@@ -71,6 +82,7 @@ public class TileSelector : MonoBehaviour
                 break;
             }
         }
+        EditorUtility.SetDirty(this);
     # endif
     }
   
