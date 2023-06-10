@@ -21,10 +21,7 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetKeyDown(KeyCode.K))
-        // {
-        //    funDelete(); 
-        // }
+
     }
 
     public bool playerIsOnGridSide(Vector3 player_pos)
@@ -187,29 +184,17 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        if(Tiles != null)
+
+        for(int i = 0; i < idx.GetLength(0); ++i)
         {
-            // Attention: Tile[-1] will not be set to isMovable = false
-            for(int i = 0; i < idx.GetLength(0); ++i)
-            {
-                Tiles[i].isMovable = false;
-                TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
-            }
-            Tiles[idx.GetLength(0)].isMovable = false;
+            Debug.Log($"Setting {idx[i, 0]},{idx[i, 1]}");
+            Tiles[i].isMovable = false;
+            TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
         }
+        Tiles[idx.GetLength(0)].isMovable = false;
         
         return Tiles;
     }
-
-    // void funDelete()
-    // {
-    //     TileSelector[] Tiles = playerInteraction(new Vector3(5, 0, -1)); 
-
-    //     for(int i = 0; i < Tiles.Length; ++i)
-    //     {
-    //         Destroy(Tiles[i].gameObject);
-    //     }
-    // }
 
 }
 

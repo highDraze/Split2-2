@@ -57,9 +57,10 @@ public class Player : MonoBehaviour
         if (tiles == null)
         {
             Debug.Log("Cant move");
-            Destroy(newTile);
+            Destroy(newTile.gameObject);
             return;
         }
+
         GridMover.Direction direction = (GridMover.Direction)manager.getPlayerSide(transform.position);
         FindObjectOfType<GridMover>().MoveTiles(tiles, direction);
     }
