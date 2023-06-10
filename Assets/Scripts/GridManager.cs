@@ -21,10 +21,10 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            // funDelete(); 
-        }
+        // if(Input.GetKeyDown(KeyCode.K))
+        // {
+        //    funDelete(); 
+        // }
     }
 
 
@@ -110,6 +110,8 @@ public class GridManager : MonoBehaviour
         return side;
     }
 
+    // Returns Tiles in the interaction line
+    // otherwise returns null (need to check!!)
     public TileSelector[] playerInteraction(Vector3 player_position)
     {   
         int side = getPlayerSide(player_position);
@@ -119,8 +121,16 @@ public class GridManager : MonoBehaviour
 
         for(int i = 0; i < idx.GetLength(0); ++i)
         {
-            Tiles[i] = TileArr.getTile(idx[i,0], idx[i, 1]);
+            TileSelector temp = TileArr.getTile(idx[i,0], idx[i, 1]);
+            if(temp.isMovable)
+            {
+                Tiles[i] = temp;
+            }
+            else{
+                break;
+            }
         }
+        Tiles = null;
         return Tiles;
     }
 
