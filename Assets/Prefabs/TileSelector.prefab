@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3603181573406814549}
+  - {fileID: 8035166485666632114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,13 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiletype: 0
+  rotation: 0
   Tiles:
   - {fileID: 8857105604434594233, guid: 7f94a28d5e4738c4fad4df986cabac5b, type: 3}
-  - {fileID: 1419720690344292691, guid: 9ef6cc6f1115079cb8d8bfcd5d2a1e23, type: 3}
-  - {fileID: 8886472779669243774, guid: deaf2a706d3b5a41f829fb8a45cb5202, type: 3}
-  - {fileID: 6210786638780018884, guid: 6d410edeef2d8c265a1b5aebcefc602c, type: 3}
-  - {fileID: 4657064713879878722, guid: 7049f2b43677569bfbbec33215ade3f2, type: 3}
---- !u!1001 &2045748033948785229
+  - {fileID: 1419720690344292691, guid: 031671fca1a30dd488c528d64f0821f7, type: 3}
+  - {fileID: 8886472779669243774, guid: 810903564ec21c84eaba9764b9ab2b17, type: 3}
+  - {fileID: 6210786638780018884, guid: 901faab38334b1c4ab5d42d2f32c91bb, type: 3}
+  - {fileID: 4657064713879878722, guid: 929f126c841215b4a8cfaa30f14745f0, type: 3}
+--- !u!1001 &4746867860118534826
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -63,7 +64,7 @@ PrefabInstance:
     - target: {fileID: 3342487257463253784, guid: 7f94a28d5e4738c4fad4df986cabac5b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3342487257463253784, guid: 7f94a28d5e4738c4fad4df986cabac5b,
         type: 3}
@@ -118,16 +119,16 @@ PrefabInstance:
     - target: {fileID: 8857105604434594233, guid: 7f94a28d5e4738c4fad4df986cabac5b,
         type: 3}
       propertyPath: m_Name
-      value: Tile1
+      value: TileDefault
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f94a28d5e4738c4fad4df986cabac5b, type: 3}
---- !u!4 &3603181573406814549 stripped
+--- !u!4 &8035166485666632114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3342487257463253784, guid: 7f94a28d5e4738c4fad4df986cabac5b,
     type: 3}
-  m_PrefabInstance: {fileID: 2045748033948785229}
+  m_PrefabInstance: {fileID: 4746867860118534826}
   m_PrefabAsset: {fileID: 0}

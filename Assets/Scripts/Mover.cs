@@ -35,7 +35,8 @@ public class Mover : MonoBehaviour
     void Update()
     {
         moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = Camera.main.transform.TransformDirection(moveDirection);
+        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
         moveDirection *= MoveSpeed;
 
         controller.Move(moveDirection * Time.deltaTime);
