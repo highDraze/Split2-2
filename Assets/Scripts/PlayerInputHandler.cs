@@ -27,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
         else
         {
             player.transform.position = PlayerSpawnPositions[players.Count - 2 % 4].position;
+            FindObjectOfType<Timer>().stopTimer = false;
         }
     }
 

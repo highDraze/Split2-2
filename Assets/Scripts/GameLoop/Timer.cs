@@ -21,17 +21,25 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         // Starts the timer automatically
-        stopTimer = false;
+        stopTimer = true;
         Timerslider.maxValue = gameTime;
-        Timerslider.value = gameTime;
+        Timerslider.value = gameTime+1;
         buttonMenu = GetComponent<Button_Menu>();
-
+        DisplayTime(gameTime);
     }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
-        
+
         if (!stopTimer)
         {
             if (gameTime > 0)
@@ -46,18 +54,8 @@ public class Timer : MonoBehaviour
                 stopTimer = true;
                 Debug.Log("Time has run out!");
                 gameTime = 0;
-                //TODO: Screen to DMwon
                 buttonMenu.EndSceneDMWon();
             }
-        }
-        
-        
-        void DisplayTime(float timeToDisplay)
-        {
-            timeToDisplay += 1;
-            float minutes = Mathf.FloorToInt(timeToDisplay / 60);  
-            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
     }
