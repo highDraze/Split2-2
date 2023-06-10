@@ -21,6 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (players.Count == 1)
         {
+            player.isDM = true;
             player.transform.position = DMSpawnPosition.position;
         }
         else

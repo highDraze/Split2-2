@@ -22,7 +22,7 @@ public class TileSelector : MonoBehaviour
         East
         }
 
-    public bool isMovable 
+    public bool isMovable
     {
         get; set;
     }
@@ -39,6 +39,7 @@ public class TileSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isMovable = true;
         ChangeTileType();
     }
 

@@ -91,14 +91,15 @@ public class GridManager : MonoBehaviour
 
         return idx;
     }
-    private int getPlayerSide(Vector3 player_position)
+    /* 
+       0: S
+       1: E
+       2: N
+       3: W
+       */
+    public int getPlayerSide(Vector3 player_position)
     {
-        /* 
-        0: S
-        1: E
-        2: N
-        3: W
-        */
+       
         int side = -1; 
 
         int up = player_position.z <= 0.0f ? 0 : -1;
@@ -157,6 +158,7 @@ public class GridManager : MonoBehaviour
         }
         return new Vector2Int(x, z);
     }
+
     // Returns Tiles in the interaction line
     // otherwise returns null (need to check!!)
     public TileSelector[] moveGrid(Vector3 player_position, TileSelector newTile)
@@ -175,7 +177,7 @@ public class GridManager : MonoBehaviour
 
         for(int i = 1; i < idx.GetLength(0) + 1; ++i)
         {
-            TileSelector temp = TileArr.getTile(idx[i,0], idx[i, 1]);
+            TileSelector temp = TileArr.getTile(idx[i - 1,0], idx[i - 1, 1]);
             if(temp.isMovable)
             {
                 Tiles[i] = temp;

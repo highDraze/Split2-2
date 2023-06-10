@@ -11,22 +11,21 @@ public class GridMover : MonoBehaviour
     public static event DStartMove StartMove;
     public delegate void DEndMove();
     public static event DStartMove EndMove;
-    private List<TileSelector> tiles = new List<TileSelector>();
+
+    public GameObject TileToSpawn;
 
 
     public enum Direction
     {
         UP,
-        RIGHT,
+        LEFT,
         DOWN,
-        LEFT
+        RIGHT
     }
 
     void Start()
     {
-        // TODO remove that
-
-        TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
+        /*TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
 
         for (int i=0; i<8; i += 1)
         {
@@ -34,13 +33,29 @@ public class GridMover : MonoBehaviour
         }
 
 
-        MoveTiles(tiles.ToArray(), Direction.DOWN);
+        MoveTiles(tiles.ToArray(), Direction.DOWN);*/
 
     }
 
-
-    public void MoveTiles(TileSelector[] tiles, Direction direction)
+    public TileSelector InstantiateNewTile(int x, int z)
     {
+        // Instantiate new Tile
+        GameObject child = Instantiate(TileToSpawn, transform);
+        //child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
+        child.transform.localPosition = new Vector3(x, 0, z);
+        TileSelector selector = child.GetComponent<TileSelector>();
+
+        // TODO ändern
+        selector.tiletype = TileSelector.TileTypes.Line;
+
+        return selector;
+    }
+
+
+    public void MoveTiles(IEnumerable<TileSelector> tiles, Direction direction)
+    {
+        if (tiles == null) return;
+
         Vector3 toOffset = Vector3.zero;
         switch(direction)
         {
@@ -58,18 +73,24 @@ public class GridMover : MonoBehaviour
                 break;
         }
 
+        Debug.Log($"move direction ${direction}");
+
         foreach(TileSelector tile in tiles)
         {
-            Debug.Log($"moving {tile.name}");
             tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
         }
-        StartCoroutine(MoveCoroutine());
+        StartCoroutine(MoveCoroutine(tiles));
     }
 
-    IEnumerator MoveCoroutine()
+    IEnumerator MoveCoroutine(IEnumerable<TileSelector> tiles)
     {
         StartMove?.Invoke();
         yield return new WaitForSeconds(MoveDuration);
         EndMove?.Invoke();
+
+        foreach (TileSelector tile in tiles)
+        {
+            tile.isMovable = true;
+        }
     }
 }

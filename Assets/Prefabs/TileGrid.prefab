@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7067293599602876142}
   - component: {fileID: 1911387896332434608}
+  - component: {fileID: 1789844409242117664}
+  - component: {fileID: 4881157301351541531}
   m_Layer: 0
   m_Name: TileGrid
   m_TagString: Untagged
@@ -30,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1911387896332434608
 MonoBehaviour:
@@ -48,3 +50,33 @@ MonoBehaviour:
   dim_z: 8
   tile_selector: {fileID: 1621876593431292601, guid: 1ec3d786aa37d9c4887f482b10282468,
     type: 3}
+  create_rand: 1
+  Tiles:
+    Tiles: []
+    dim_x: 0
+    dim_z: 0
+--- !u!114 &1789844409242117664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043460173735747025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6aa406d6c735f429cf5e0e7ba657a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4881157301351541531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043460173735747025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc87d33b4a5a3c44a0c8eed5453d68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveDuration: 3
