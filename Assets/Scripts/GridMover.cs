@@ -43,7 +43,12 @@ public class GridMover : MonoBehaviour
         GameObject child = Instantiate(TileToSpawn, transform);
         //child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
         child.transform.localPosition = new Vector3(x, 0, z);
-        return child.GetComponent<TileSelector>();
+        TileSelector selector = child.GetComponent<TileSelector>();
+
+        // TODO ändern
+        selector.tiletype = TileSelector.TileTypes.Line;
+
+        return selector;
     }
 
 

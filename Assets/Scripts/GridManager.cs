@@ -177,7 +177,7 @@ public class GridManager : MonoBehaviour
 
         for(int i = 1; i < idx.GetLength(0) + 1; ++i)
         {
-            TileSelector temp = TileArr.getTile(idx[i,0], idx[i, 1]);
+            TileSelector temp = TileArr.getTile(idx[i - 1,0], idx[i - 1, 1]);
             if(temp.isMovable)
             {
                 temp.isMovable = false;

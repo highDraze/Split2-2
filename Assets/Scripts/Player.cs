@@ -60,9 +60,7 @@ public class Player : MonoBehaviour
             Destroy(newTile);
             return;
         }
-        List<TileSelector> list = new List<TileSelector>(tiles);
-        list.Add(newTile);
         GridMover.Direction direction = (GridMover.Direction)manager.getPlayerSide(transform.position);
-        FindObjectOfType<GridMover>().MoveTiles(list, direction);
+        FindObjectOfType<GridMover>().MoveTiles(tiles, direction);
     }
 }
