@@ -48,7 +48,10 @@ MonoBehaviour:
   tiletype: 0
   Tiles:
   - {fileID: 8857105604434594233, guid: 7f94a28d5e4738c4fad4df986cabac5b, type: 3}
-  - {fileID: 8857105604434594233, guid: b804a75fa33aa2745ab171265c265f1f, type: 3}
+  - {fileID: 1419720690344292691, guid: 9ef6cc6f1115079cb8d8bfcd5d2a1e23, type: 3}
+  - {fileID: 8886472779669243774, guid: deaf2a706d3b5a41f829fb8a45cb5202, type: 3}
+  - {fileID: 6210786638780018884, guid: 6d410edeef2d8c265a1b5aebcefc602c, type: 3}
+  - {fileID: 4657064713879878722, guid: 7049f2b43677569bfbbec33215ade3f2, type: 3}
 --- !u!1001 &2045748033948785229
 PrefabInstance:
   m_ObjectHideFlags: 0
