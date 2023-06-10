@@ -1,7 +1,9 @@
 {
     "name": "Zenject-Editor",
     "references": [
-        "Zenject"
+        "Zenject",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
