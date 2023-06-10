@@ -12,7 +12,9 @@ public class GridSpawner : MonoBehaviour
     public GameObject tile_selector;
     public bool create_rand = true;
 
-    TileSelector [,] tiles;
+    public TileGridArr Tiles;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class GridSpawner : MonoBehaviour
             }
         }
 
-        tiles = new TileSelector[dim_z, dim_x];
+        Tiles = new TileGridArr(dim_x, dim_z);
         for(int x = 0; x < dim_x; ++x)
         {
             for(int z = 0; z < dim_z; ++z)
@@ -40,15 +42,15 @@ public class GridSpawner : MonoBehaviour
                 GameObject temp = (GameObject) PrefabUtility.InstantiatePrefab(tile_selector);
                 temp.transform.parent = transform;
                 temp.transform.position = new Vector3(x, 0, z);
-                tiles[z, x] = temp.GetComponent<TileSelector>();
+                Tiles.setTile(x, z, temp.GetComponent<TileSelector>());
 
                 if(create_rand)
                 {
-                    tiles[z, x].tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
-                    tiles[z, x].ChangeTileType();
+                    Tiles.getTile(x, z).tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
+                    Tiles.getTile(x, z).ChangeTileType();
                 }
             }
         }
+        # endif
     }
-    # endif
 }
