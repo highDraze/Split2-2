@@ -412,7 +412,8 @@ MonoBehaviour:
   creditScene: 2
   settingScene: 3
   menuScene: 0
-  endScene: 4
+  endScenePlayerWon: 4
+  endSceneDMWon: 5
 --- !u!1 &8878778057813908212
 GameObject:
   m_ObjectHideFlags: 0

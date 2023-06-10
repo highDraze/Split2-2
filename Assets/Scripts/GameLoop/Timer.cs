@@ -46,8 +46,8 @@ public class Timer : MonoBehaviour
                 stopTimer = true;
                 Debug.Log("Time has run out!");
                 gameTime = 0;
-                //TODO: Screen to Menu
-                buttonMenu.EndScene();
+                //TODO: Screen to DMwon
+                buttonMenu.EndSceneDMWon();
             }
         }
         

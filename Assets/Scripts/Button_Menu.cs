@@ -10,7 +10,8 @@ public class Button_Menu : MonoBehaviour
     public int creditScene;
     public int settingScene;
     public int menuScene;
-    public int endScene;
+    public int endScenePlayerWon;
+    public int endSceneDMWon;
     public void Game()
     {
         SceneManager.LoadScene(mainGameScene);
@@ -32,9 +33,13 @@ public class Button_Menu : MonoBehaviour
         SceneManager.LoadScene(menuScene);
     }
 
-    public void EndScene()
+    public void EndScenePlayerWon()
     {
-        SceneManager.LoadScene(endScene);
+        SceneManager.LoadScene(endScenePlayerWon);
+    }
+    public void EndSceneDMWon()
+    {
+        SceneManager.LoadScene(endSceneDMWon);
     }
     public void Exit()
     {
