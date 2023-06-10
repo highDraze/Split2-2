@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-
+# if UNITY_EDITOR
+    using UnityEditor;
+# endif
 public class TileSelector : MonoBehaviour
 {
     public enum TileTypes { 
@@ -28,11 +29,17 @@ public class TileSelector : MonoBehaviour
     {
         
     }
-
+   
     [ContextMenu("Change")]
-    void test()
+    void ChangeTileType()
     { 
-        Debug.Log("Blub");
+    # if UNITY_EDITOR
+        for(int i = transform.childCount - 1; i >= 0; --i)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
+
+        Debug.Log($"Added a tile of type {tiletype}");
 
         foreach(GameObject curObj in Tiles)
         {
@@ -44,8 +51,11 @@ public class TileSelector : MonoBehaviour
                     Debug.Log($"Error instantiating a tile of type {tiletype}");
                 }
                 child.transform.parent = gameObject.transform;
+                child.transform.localPosition = Vector3.zero;
                 break;
             }
         }
+    # endif
     }
+  
 }
