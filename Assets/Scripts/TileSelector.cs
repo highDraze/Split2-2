@@ -21,6 +21,11 @@ public class TileSelector : MonoBehaviour
         East
         }
 
+    public bool isMovable 
+    {
+        get; set;
+    }
+
     public TileTypes tiletype;
     public Rotation rotation;
     
@@ -37,6 +42,8 @@ public class TileSelector : MonoBehaviour
     {
         
     }
+
+    public void 
    
     [ContextMenu("Change")]
     public void ChangeTileType()
