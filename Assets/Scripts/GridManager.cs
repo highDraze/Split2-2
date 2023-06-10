@@ -31,11 +31,11 @@ public class GridManager : MonoBehaviour
     {
         int in_x = 0;
         int in_z = 0;
-        if(player_pos.x < dim_x - 0.5 && player_pos.x >= -0.5)
+        if(player_pos.x < dim_x - 0.5 && player_pos.x > -0.5)
         {
             in_x = 1;
         } 
-        if(player_pos.z < dim_z - 0.5 && player_pos.z >= -0.5)
+        if(player_pos.z < dim_z - 0.5 && player_pos.z > -0.5)
         {
             in_z = 1;
         }
@@ -102,11 +102,11 @@ public class GridManager : MonoBehaviour
        
         int side = -1; 
 
-        int up = player_position.z <= 0.0f ? 0 : -1;
-        int left = player_position.x <= 0.0f ? 0 : -1;
+        int up = player_position.z <= -0.5f ? 0 : -1;
+        int left = player_position.x <= -0.5f ? 0 : -1;
 
-        up += player_position.z >= dim_z ? 2 : 0;
-        left += player_position.x >= dim_x ? 2 : 0;
+        up += player_position.z >= dim_z - 0.5f ? 2 : 0;
+        left += player_position.x >= dim_x - 0.5f ? 2 : 0;
 
         if (up == 0)
         {
@@ -183,8 +183,7 @@ public class GridManager : MonoBehaviour
                 Tiles[i] = temp;
             }
             else{
-                Tiles = null;
-                break;
+                return null;
             }
         }
 
@@ -196,6 +195,7 @@ public class GridManager : MonoBehaviour
                 Tiles[i].isMovable = false;
                 TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
             }
+            Tiles[idx.GetLength(0)].isMovable = false;
         }
         
         return Tiles;

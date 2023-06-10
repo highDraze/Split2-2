@@ -77,7 +77,15 @@ public class GridMover : MonoBehaviour
 
         Debug.Log($"move direction ${direction}");
 
-        foreach(TileSelector tile in tiles)
+        int i = 0;
+        foreach (TileSelector tile in tiles)
+        {
+            //if (!tile.isMovable) return;
+            if (tile.isMovable) Debug.Log("Movable" + i + " " + tile.isMovable);
+            i++;
+        }
+
+        foreach (TileSelector tile in tiles)
         {
             tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
         }
