@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreenDMWon.unity
     guid: acecb2b02537f594d9d545fd672fbd16
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/LogicRasmus.unity
+    guid: 1304f81bf08286b47ac16b093b6581d4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9120607868a10ba4f83e57f8b877a045,
       type: 2}
