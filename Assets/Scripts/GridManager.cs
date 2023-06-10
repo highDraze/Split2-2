@@ -180,7 +180,6 @@ public class GridManager : MonoBehaviour
             TileSelector temp = TileArr.getTile(idx[i - 1,0], idx[i - 1, 1]);
             if(temp.isMovable)
             {
-                temp.isMovable = false;
                 Tiles[i] = temp;
             }
             else{
@@ -191,8 +190,10 @@ public class GridManager : MonoBehaviour
 
         if(Tiles != null)
         {
-        for(int i = 0; i < idx.GetLength(0); ++i)
+            // Attention: Tile[-1] will not be set to isMovable = false
+            for(int i = 0; i < idx.GetLength(0); ++i)
             {
+                Tiles[i].isMovable = false;
                 TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
             }
         }
