@@ -37,11 +37,8 @@ public class GridMover : MonoBehaviour
         child.transform.localPosition = new Vector3(x, 0, z);
         TileSelector selector = child.GetComponent<TileSelector>();
 
-        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
-        var rotation = Random.Range(0, 4);
-        Debug.Log($"rotation {rotation}");
-        selector.transform.Rotate(0, 90f * rotation, 0, Space.Self);
-        Debug.Log($"new rotation {selector.transform.rotation.eulerAngles}");
+        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 2);
+        selector.rotation = (TileSelector.Rotation)Random.Range(0, 4);
 
         return selector;
     }
