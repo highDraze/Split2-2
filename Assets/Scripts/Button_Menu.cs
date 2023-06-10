@@ -21,7 +21,7 @@ public class Button_Menu : MonoBehaviour
     }
     public void Settings()
     {
-        SceneManager.LoadScene(creditScene,LoadSceneMode.Additive);
+        SceneManager.LoadScene(settingScene,LoadSceneMode.Additive);
 
     }
 
@@ -32,6 +32,8 @@ public class Button_Menu : MonoBehaviour
     public void back()
     {
         SceneManager.LoadScene(menuScene);
+        
+            SceneManager.UnloadSceneAsync("Settings"); 
     }
 }
 
