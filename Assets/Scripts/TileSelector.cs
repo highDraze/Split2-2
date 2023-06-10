@@ -53,8 +53,6 @@ public class TileSelector : MonoBehaviour
             _lastRotation = rotation;
         }
     }
-
-    public void 
    
     [ContextMenu("Change")]
     public void ChangeTileType()
