@@ -145,9 +145,10 @@ public class GridManager : MonoBehaviour
         int direction = side == 1 || side == 2 ? -1 : 1;
 
 
-        TileSelector[] Tiles = new TileSelector[idx.GetLength(0)];
+        TileSelector[] Tiles = new TileSelector[idx.GetLength(0) + 1];
+        Tiles[0] = newTile;
 
-        for(int i = 0; i < idx.GetLength(0); ++i)
+        for(int i = 1; i < idx.GetLength(0) + 1; ++i)
         {
             TileSelector temp = TileArr.getTile(idx[i,0], idx[i, 1]);
             if(temp.isMovable)
@@ -156,16 +157,19 @@ public class GridManager : MonoBehaviour
                 Tiles[i] = temp;
             }
             else{
+                Tiles = null;
                 break;
             }
         }
 
-        for(int i = 0; i < idx.GetLength(0); ++i)
+        if(Tiles != null)
         {
-
+        for(int i = 0; i < idx.GetLength(0); ++i)
+            {
+                TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
+            }
         }
-
-        Tiles = null;
+        
         return Tiles;
     }
 
