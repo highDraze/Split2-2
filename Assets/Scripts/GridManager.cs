@@ -29,20 +29,20 @@ public class GridManager : MonoBehaviour
 
     public bool playerIsOnGridSide(Vector3 player_pos)
     {
-        Vector2Int grid_pos = playerToGridPosition(player_pos);
-
         int in_x = 0;
         int in_z = 0;
-        if(grid_pos.x < dim_x && grid_pos.x >= 0)
+        if(player_pos.x < dim_x - 0.5 && player_pos.x >= -0.5)
         {
             in_x = 1;
         } 
-        if(grid_pos.y < dim_z && grid_pos.y >= 0)
+        if(player_pos.z < dim_z - 0.5 && player_pos.z >= -0.5)
         {
             in_z = 1;
-        } 
+        }
 
-        return in_x + in_z != 0 ? true : false;
+        Debug.Log($"player on grid side {in_x}, {in_z}");
+
+        return in_x + in_z == 1;
     }
     // Returns the idx based on the player position and side he is on.
     // If his x/z pos is smaller 0 the idx for the array needs to be increased (i.e. 0, 1, ,2, 3)
@@ -84,10 +84,10 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < arr_len; ++i)
+        /*for(int i = 0; i < arr_len; ++i)
         {
             Debug.Log($"0 : {idx[i, 0]}, 1 : {idx[i, 1]}");
-        }
+        }*/
 
         return idx;
     }

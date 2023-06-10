@@ -2,6 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GridMover : MonoBehaviour
 {
@@ -45,8 +46,9 @@ public class GridMover : MonoBehaviour
         child.transform.localPosition = new Vector3(x, 0, z);
         TileSelector selector = child.GetComponent<TileSelector>();
 
-        // TODO ändern
-        selector.tiletype = TileSelector.TileTypes.Line;
+        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
+        //var rotation = Random.Range(0, 4);
+        //selector.transform.Rotate(Vector3.up, 90f * rotation);
 
         return selector;
     }
@@ -84,6 +86,9 @@ public class GridMover : MonoBehaviour
 
     IEnumerator MoveCoroutine(IEnumerable<TileSelector> tiles)
     {
+        var dim_x = FindObjectOfType<GridSpawner>().dim_x;
+        var dim_z = FindObjectOfType<GridSpawner>().dim_z;
+
         StartMove?.Invoke();
         yield return new WaitForSeconds(MoveDuration);
         EndMove?.Invoke();
@@ -91,6 +96,11 @@ public class GridMover : MonoBehaviour
         foreach (TileSelector tile in tiles)
         {
             tile.isMovable = true;
+            /*if (tile.transform.position.x >= dim_x || tile.transform.position.z >= dim_z || tile.transform.position.x < 0 || tile.transform.position.z < 0)
+            {
+                Destroy(tile.transform.gameObject);
+            }*/
         }
+        Destroy(tiles.Last().transform.gameObject);
     }
 }
