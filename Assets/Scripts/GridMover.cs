@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class GridMover : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GridMover : MonoBehaviour
     public static event DStartMove StartMove;
     public delegate void DEndMove();
     public static event DStartMove EndMove;
+    private List<TileSelector> tiles = new List<TileSelector>();
+
 
     public enum Direction
     {
@@ -23,7 +26,16 @@ public class GridMover : MonoBehaviour
     {
         // TODO remove that
 
-        FindObjectOfType<GridSpawner>();
+        TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
+
+        for (int i=0; i<8; i += 1)
+        {
+            tiles.Add(tileGridArr.getTile(i, 5));
+        }
+
+
+        MoveTiles(tiles.ToArray(), Direction.DOWN);
+
     }
 
 
@@ -46,7 +58,11 @@ public class GridMover : MonoBehaviour
                 break;
         }
 
-        transform.DOMove(transform.position + toOffset, MoveDuration);
+        foreach(TileSelector tile in tiles)
+        {
+            Debug.Log($"moving {tile.name}");
+            tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
+        }
         StartCoroutine(MoveCoroutine());
     }
 
