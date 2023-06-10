@@ -187,7 +187,7 @@ public class GridManager : MonoBehaviour
 
         for(int i = 0; i < idx.GetLength(0); ++i)
         {
-            Debug.Log($"Setting {idx[i, 0]},{idx[i, 1]}");
+            //Debug.Log($"Setting {idx[i, 0]},{idx[i, 1]}");
             Tiles[i].isMovable = false;
             TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
         }

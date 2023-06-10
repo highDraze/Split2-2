@@ -26,15 +26,6 @@ public class GridMover : MonoBehaviour
 
     void Start()
     {
-        /*TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
-
-        for (int i=0; i<8; i += 1)
-        {
-            tiles.Add(tileGridArr.getTile(i, 5));
-        }
-
-
-        MoveTiles(tiles.ToArray(), Direction.DOWN);*/
 
     }
 
@@ -42,13 +33,15 @@ public class GridMover : MonoBehaviour
     {
         // Instantiate new Tile
         GameObject child = Instantiate(TileToSpawn, transform);
-        //child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
+
         child.transform.localPosition = new Vector3(x, 0, z);
         TileSelector selector = child.GetComponent<TileSelector>();
 
         selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
-        //var rotation = Random.Range(0, 4);
-        //selector.transform.Rotate(Vector3.up, 90f * rotation);
+        var rotation = Random.Range(0, 4);
+        Debug.Log($"rotation {rotation}");
+        selector.transform.Rotate(0, 90f * rotation, 0, Space.Self);
+        Debug.Log($"new rotation {selector.transform.rotation.eulerAngles}");
 
         return selector;
     }
