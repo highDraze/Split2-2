@@ -14,7 +14,15 @@ public class TileSelector : MonoBehaviour
         Cross
         }
 
+    public enum Rotation { 
+        North,
+        West,
+        South,
+        East
+        }
+
     public TileTypes tiletype;
+    public Rotation rotation;
     
     public GameObject[] Tiles = new GameObject[5]; 
 
@@ -51,6 +59,7 @@ public class TileSelector : MonoBehaviour
                     Debug.Log($"Error instantiating a tile of type {tiletype}");
                 }
                 child.transform.parent = gameObject.transform;
+                child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
                 child.transform.localPosition = Vector3.zero;
                 break;
             }
