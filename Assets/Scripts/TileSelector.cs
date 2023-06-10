@@ -31,7 +31,7 @@ public class TileSelector : MonoBehaviour
     }
    
     [ContextMenu("Change")]
-    void ChangeTileType()
+    public void ChangeTileType()
     { 
     # if UNITY_EDITOR
         for(int i = transform.childCount - 1; i >= 0; --i)

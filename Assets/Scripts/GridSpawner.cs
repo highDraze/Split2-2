@@ -10,6 +10,7 @@ public class GridSpawner : MonoBehaviour
     public int dim_x = 8;
     public int dim_z = 8;
     public GameObject tile_selector;
+    public bool create_rand = true;
 
     TileSelector [,] tiles;
     // Start is called before the first frame update
@@ -41,6 +42,11 @@ public class GridSpawner : MonoBehaviour
                 temp.transform.position = new Vector3(x, 0, z);
                 tiles[z, x] = temp.GetComponent<TileSelector>();
 
+                if(create_rand)
+                {
+                    tiles[z, x].tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
+                    tiles[z, x].ChangeTileType();
+                }
             }
         }
     }
