@@ -122,10 +122,10 @@ public class GridManager : MonoBehaviour
                 z = 0;
                 break;
             case 1:
-                x = dim_x;
+                x = dim_x - 1;
                 break;
             case 2:
-                z = dim_z;
+                z = dim_z - 1;
                 break;
             case 3:
                 x = 0;
