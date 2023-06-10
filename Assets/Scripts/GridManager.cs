@@ -70,15 +70,15 @@ public class GridManager : MonoBehaviour
 
         return idx;
     }
-
+    /* 
+       0: S
+       1: E
+       2: N
+       3: W
+       */
     public int getPlayerSide(Vector3 player_position)
     {
-        /* 
-        0: S
-        1: E
-        2: N
-        3: W
-        */
+       
         int side = -1; 
 
         int up = player_position.z <= 0.0f ? 0 : -1;

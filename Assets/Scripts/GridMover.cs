@@ -13,6 +13,8 @@ public class GridMover : MonoBehaviour
     public static event DStartMove EndMove;
     private List<TileSelector> tiles = new List<TileSelector>();
 
+    public GameObject TileToSpawn;
+
 
     public enum Direction
     {
@@ -34,6 +36,15 @@ public class GridMover : MonoBehaviour
 
         MoveTiles(tiles.ToArray(), Direction.DOWN);*/
 
+    }
+
+    public TileSelector InstantiateNewTile(int x, int z)
+    {
+        // Instantiate new Tile
+        GameObject child = Instantiate(TileToSpawn, transform);
+        //child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
+        child.transform.localPosition = new Vector3(x, 0, z);
+        return child.GetComponent<TileSelector>();
     }
 
 
