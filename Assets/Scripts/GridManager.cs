@@ -27,7 +27,21 @@ public class GridManager : MonoBehaviour
         // }
     }
 
+    public bool playerIsOnGridSide(Vector3 player_pos)
+    {
+        int in_x = 0;
+        int in_z = 0;
+        if(player_pos.x < dim_x && player_pos.x >= 0)
+        {
+            in_x = 1;
+        } 
+        if(player_pos.z < dim_z && player_pos.z >= 0)
+        {
+            in_z = 1;
+        } 
 
+        return in_x + in_z != 0 ? true : false;
+    }
     // Returns the idx based on the player position and side he is on.
     // If his x/z pos is smaller 0 the idx for the array needs to be increased (i.e. 0, 1, ,2, 3)
     // Otherwise it is the other way around (8, 7, 6, 5 ...)
@@ -123,10 +137,10 @@ public class GridManager : MonoBehaviour
                 z = 0;
                 break;
             case 1:
-                x = dim_x;
+                x = dim_x - 1;
                 break;
             case 2:
-                z = dim_z;
+                z = dim_z - 1;
                 break;
             case 3:
                 x = 0;
@@ -142,6 +156,10 @@ public class GridManager : MonoBehaviour
     // otherwise returns null (need to check!!)
     public TileSelector[] moveGrid(Vector3 player_position, TileSelector newTile)
     {   
+        if(!playerIsOnGridSide(player_position))
+        {
+            return null;
+        }
         int side = getPlayerSide(player_position);
         int[,] idx = getArrIndex(side, player_position);
         int direction = side == 1 || side == 2 ? -1 : 1;
