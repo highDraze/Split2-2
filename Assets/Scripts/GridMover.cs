@@ -19,22 +19,35 @@ public class GridMover : MonoBehaviour
         LEFT
     }
 
+    void Start()
+    {
+        // TODO remove that
+
+        FindObjectOfType<GridSpawner>();
+    }
+
 
     public void MoveTiles(TileSelector[] tiles, Direction direction)
     {
+        Vector3 toOffset = Vector3.zero;
         switch(direction)
         {
             case Direction.UP:
-                transform.DOMove(transform.position + new Vector3(0, 0, 1), MoveDuration);
-                StartCoroutine(MoveCoroutine());
+                toOffset = new Vector3(0, 0, 1);
                 break;
             case Direction.RIGHT:
+                toOffset = new Vector3(1, 0, 0);
                 break;
             case Direction.DOWN:
+                toOffset = new Vector3(0, 0, -1);
                 break;
             case Direction.LEFT:
+                toOffset = new Vector3(-1, 0, 0);
                 break;
         }
+
+        transform.DOMove(transform.position + toOffset, MoveDuration);
+        StartCoroutine(MoveCoroutine());
     }
 
     IEnumerator MoveCoroutine()
