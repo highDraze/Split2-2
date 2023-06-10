@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+
 public class Timer : MonoBehaviour
 {
     [Header("Component")] public TextMeshProUGUI timerText;
@@ -15,7 +16,7 @@ public class Timer : MonoBehaviour
     public float gameTime;
     [FormerlySerializedAs("timerIsRunning")] public bool stopTimer = false;
     public Slider Timerslider;
-
+    private Button_Menu buttonMenu;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class Timer : MonoBehaviour
         stopTimer = false;
         Timerslider.maxValue = gameTime;
         Timerslider.value = gameTime;
+        buttonMenu = GetComponent<Button_Menu>();
+
     }
     // Update is called once per frame
     void Update()
@@ -44,6 +47,7 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
                 gameTime = 0;
                 //TODO: Screen to Menu
+                buttonMenu.EndScene();
             }
         }
         

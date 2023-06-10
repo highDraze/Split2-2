@@ -5,22 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-
-  - enabled: 1
-    path: Assets/Scenes/LogicRasmus.unity
-    guid: 1304f81bf08286b47ac16b093b6581d4
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 9a8fbcc4ad707d24ebfafc89425062a7
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Game.unity
+    guid: d5fa07f2d62a33a6b9cf2f10b10dc4cc
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 64d577c290eac9c45ab437fafa278b24
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: c33470c249b530c4497e4b83b0a92e82
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 30daad16adbe2d74382df1dadc284d5a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9120607868a10ba4f83e57f8b877a045,
       type: 2}
