@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    GridSpawner spawner;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawner = gameObject.GetComponent<GridSpawner>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        
+        playerInteraction(transform.position);
     }
 
     void playerInteraction(Vector3 position)
@@ -29,7 +30,10 @@ public class GridManager : MonoBehaviour
         int up = position.z <= 0.0f ? 0 : -1;
         int left = position.x <= 0.0f ? 0 : -1;
 
-        side = 2 * up + left; 
+        up += position.z >= spawner.dim_z ? 2 : 0;
+        left += position.x >= spawner.dim_x ? 2 : 0;
+
+        Debug.Log($"up : {up}, left : {left}");
         
     }
 }
