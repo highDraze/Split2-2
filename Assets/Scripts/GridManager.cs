@@ -47,22 +47,23 @@ public class GridManager : MonoBehaviour
 
         int multi = side == 1 || side == 2 ? -1 : 1;
 
-        int x = (int) player_position.x;
-        int z = (int) player_position.z;
+        Vector2Int grid_pos = playerToGridPosition(player_position);
+        int x = grid_pos.x;
+        int z = grid_pos.y;
 
         if(side % 2 == 0)
         {
             for(int i = 0; i < arr_len; ++i)
             {
                 idx[i, 0] = x;
-                idx[i, 1] = z + (i+1) * multi;
+                idx[i, 1] = z + i * multi;
             }
         }
         else
         {
             for(int i = 0; i < arr_len; ++i)
             {
-                idx[i, 0] = x + (i+1) * multi;
+                idx[i, 0] = x + i * multi;
                 idx[i, 1] = z;
             }
         }
@@ -110,12 +111,41 @@ public class GridManager : MonoBehaviour
         return side;
     }
 
+    public Vector2Int playerToGridPosition(Vector3 player_pos)
+    {
+        int x = (int) player_pos.x;
+        int z = (int) player_pos.z;
+        int side = getPlayerSide(player_pos);
+
+        switch(side)
+        {
+            case 0:
+                z = 0;
+                break;
+            case 1:
+                x = dim_x;
+                break;
+            case 2:
+                z = dim_z;
+                break;
+            case 3:
+                x = 0;
+                break;
+            default:
+                Debug.Log("Side not in [0,4]");
+                break;
+        }
+        return new Vector2Int(x, z);
+    }
+
     // Returns Tiles in the interaction line
     // otherwise returns null (need to check!!)
-    public TileSelector[] playerInteraction(Vector3 player_position)
+    public TileSelector[] moveGrid(Vector3 player_position, TileSelector newTile)
     {   
         int side = getPlayerSide(player_position);
         int[,] idx = getArrIndex(side, player_position);
+        int direction = side == 1 || side == 2 ? -1 : 1;
+
 
         TileSelector[] Tiles = new TileSelector[idx.GetLength(0)];
 
@@ -124,12 +154,19 @@ public class GridManager : MonoBehaviour
             TileSelector temp = TileArr.getTile(idx[i,0], idx[i, 1]);
             if(temp.isMovable)
             {
+                temp.isMovable = false;
                 Tiles[i] = temp;
             }
             else{
                 break;
             }
         }
+
+        for(int i = 0; i < idx.GetLength(0); ++i)
+        {
+
+        }
+
         Tiles = null;
         return Tiles;
     }
@@ -143,4 +180,7 @@ public class GridManager : MonoBehaviour
     //         Destroy(Tiles[i].gameObject);
     //     }
     // }
+
 }
+
+
