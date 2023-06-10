@@ -40,6 +40,7 @@ public class TileSelector : MonoBehaviour
     void Start()
     {
         isMovable = true;
+        ChangeTileType();
     }
 
     // Update is called once per frame
@@ -81,6 +82,29 @@ public class TileSelector : MonoBehaviour
             }
         }
         EditorUtility.SetDirty(this);
+
+        # else
+            for(int i = transform.childCount - 1; i >= 0; --i)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+
+            foreach(GameObject curObj in Tiles)
+            {
+                if (curObj.GetComponent<TileProperties>().myType == tiletype)
+                {
+                    GameObject child = (GameObject)PrefabUtility.Instantiate(curObj);
+                    if(child == null)
+                    {
+                        Debug.Log($"Error instantiating a tile of type {tiletype}");
+                    }
+                    child.transform.parent = gameObject.transform;
+                    child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
+                    child.transform.localPosition = Vector3.zero;
+                    break;
+                }
+        }
+
     # endif
     }
   
