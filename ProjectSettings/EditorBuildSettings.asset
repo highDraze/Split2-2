@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LogicRasmus.unity
     guid: 1304f81bf08286b47ac16b093b6581d4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9120607868a10ba4f83e57f8b877a045,
+      type: 2}
