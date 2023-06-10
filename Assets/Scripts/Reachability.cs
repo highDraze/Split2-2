@@ -5,13 +5,9 @@ public class Reachability : MonoBehaviour
 {
     public Transform target;
 
-    private bool _Reachable;
     public bool Reachable
     {
-        get
-        {
-            return _Reachable;
-        }
+        get; private set;
     }
 
     // Start is called before the first frame update
@@ -28,11 +24,11 @@ public class Reachability : MonoBehaviour
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            _Reachable = true;
+            Reachable = true;
         }
         else
         {
-            _Reachable = false;
+            Reachable = false;
         }
     }
 }
