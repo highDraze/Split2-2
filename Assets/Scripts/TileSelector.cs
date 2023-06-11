@@ -15,7 +15,8 @@ public class TileSelector : MonoBehaviour
         Cross,
         O,
         Immovable,
-        Treasure
+        Treasure,
+        Door
         }
 
     public enum Rotation { 

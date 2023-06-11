@@ -231,8 +231,7 @@ MonoBehaviour:
   goalGrabbed: 0
   invisibilityCooldown: 5
   playerNumber: 0
-  gridManager: {fileID: 1789844409242117664, guid: 17388c98ab6b15997869178053c5057c,
-    type: 3}
+  activePlayerMove: 1
 --- !u!54 &-4908785820247906922
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -32,8 +32,8 @@ public class PlayerInputHandler : MonoBehaviour
             player.gameObject.layer = 6;
             player.transform.position = PlayerSpawnPositions[players.Count - 2 % 4].position;
             FindObjectOfType<Timer>().stopTimer = false;
-            PlayerInvisibilityButtons[players.Count - 1].gameObject.SetActive(true);
-            SubscribeInvisibilityActiveDisplay(player, PlayerInvisibilityButtons[players.Count - 1], players.Count - 1);
+            //PlayerInvisibilityButtons[players.Count - 1].gameObject.SetActive(true);
+            //SubscribeInvisibilityActiveDisplay(player, PlayerInvisibilityButtons[players.Count - 1], players.Count - 1);
         }
 
         

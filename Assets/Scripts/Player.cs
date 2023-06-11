@@ -25,10 +25,13 @@ public class Player : MonoBehaviour
     Vector2Int curGridPos;
     TileSelector curStandingTile;
     TileGridArr TileArr;
+
+    public bool activePlayerMove;
+
     void Awake()
     {
         //GetComponent<Reachability>().ChangeReachability += ChangeReachability;
-        if(!isDM)
+        if(!isDM && activePlayerMove)
         {
             gridManager = GameObject.FindAnyObjectByType<GridManager>();
             TileArr = gridManager.TileArr;
@@ -51,17 +54,17 @@ public class Player : MonoBehaviour
 
         if (isDM) InstantiateTileAndMove();
 
-        if (goalInRange) GrabGoal();
+        /*if (goalInRange) GrabGoal();*/
     }
 
     public void MakeInvisible(InputAction.CallbackContext context)
     {
-        Debug.Log("Make Invisible");
+        /*Debug.Log("Make Invisible");
         if (!context.performed) return;
 
         if (isDM) return;
 
-        if (invisibilityActive) AddInvisibility();
+        if (invisibilityActive) AddInvisibility();*/
     }
 
     /*void ChangeReachability(bool reachable)
@@ -125,7 +128,7 @@ public class Player : MonoBehaviour
     void GrabGoal()
     {
         goalGrabbed = true;
-        GetComponent<Reachability>().target = FindObjectOfType<ExitGoal>().transform;
+        // GetComponent<Reachability>().target = FindObjectOfType<ExitGoal>().transform;
     }
 
     void Update()
@@ -138,7 +141,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {   
-        if(!isDM)
+        if(!isDM && activePlayerMove)
         {
             Vector2Int tempGridPos = gridManager.playerToGridPosition(transform.position, false);
             if(curGridPos != tempGridPos)
