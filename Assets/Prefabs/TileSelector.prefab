@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8004651025408748216}
   - component: {fileID: 363107803350017702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TileSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8035166485666632114}
+  - {fileID: 19471680475756713}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b5ff256e530494faa8b2167bb3ecee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMovable: 1
   tiletype: 0
   rotation: 0
   Tiles:
@@ -53,7 +54,7 @@ MonoBehaviour:
   - {fileID: 8886472779669243774, guid: 810903564ec21c84eaba9764b9ab2b17, type: 3}
   - {fileID: 6210786638780018884, guid: 901faab38334b1c4ab5d42d2f32c91bb, type: 3}
   - {fileID: 4657064713879878722, guid: 929f126c841215b4a8cfaa30f14745f0, type: 3}
---- !u!1001 &4746867860118534826
+--- !u!1001 &3325850121206371249
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -121,14 +122,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileDefault
       objectReference: {fileID: 0}
+    - target: {fileID: 8857105604434594233, guid: 7f94a28d5e4738c4fad4df986cabac5b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f94a28d5e4738c4fad4df986cabac5b, type: 3}
---- !u!4 &8035166485666632114 stripped
+--- !u!4 &19471680475756713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3342487257463253784, guid: 7f94a28d5e4738c4fad4df986cabac5b,
     type: 3}
-  m_PrefabInstance: {fileID: 4746867860118534826}
+  m_PrefabInstance: {fileID: 3325850121206371249}
   m_PrefabAsset: {fileID: 0}
