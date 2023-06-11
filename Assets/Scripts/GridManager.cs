@@ -199,6 +199,47 @@ public class GridManager : MonoBehaviour
         return Tiles;
     }
 
+    public void randomize_field()
+    {
+        for(int x = 1 ; x < dim_x - 1; ++x)
+        {
+            for(int z = 1 ; z < dim_z - 1; ++z)
+            {
+                int ranNum = Random.Range(0, 4 * 4 + 2);
+                    ranNum += 1;
+                    if(ranNum <= 4)
+                    {
+                        ranNum = 1;
+                    }
+                    else if(ranNum <= 8)
+                    {
+                        ranNum = 2;
+                    }
+                    else if(ranNum <= 12)
+                    {
+                        ranNum = 3;
+                    }
+                    else if(ranNum <= 16)
+                    {
+                        ranNum = 4;
+                    }
+                    else if(ranNum <= 17)
+                    {
+                        ranNum = 5; 
+                    }
+                    else
+                    {
+                        ranNum = 6; 
+                    }
+
+                TileSelector tempTile = TileArr.getTile(x, z);
+                tempTile.gameObject.GetComponentInChildren<TileProperties>().myType = (TileSelector.TileTypes)ranNum;
+                tempTile.rotation = (TileSelector.Rotation)Random.Range(0, 4);
+                tempTile.ChangeTileType();
+            }   
+        }
+    }
+
 }
 
 
