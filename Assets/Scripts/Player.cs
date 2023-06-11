@@ -6,16 +6,26 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public bool isDM;
-    public InputAction interactAction;
-
-    void Awake()
-    {
-        interactAction.performed += context => InstantiateTileAndMove();
-    }
+    public bool goalInRange;
+    public bool goalGrabbed;
 
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (isDM) InstantiateTileAndMove();
+
+        if (goalInRange) GrabGoal();
+    }
+
+    void GrabGoal()
+    {
+
     }
 
     void Update()
@@ -30,8 +40,6 @@ public class Player : MonoBehaviour
 
     void InstantiateTileAndMove()
     {
-        if (!isDM) return;
-
         GridManager manager = FindObjectOfType<GridManager>();
         GridMover mover = FindObjectOfType<GridMover>();
         GridSpawner spawner = FindObjectOfType<GridSpawner>();

@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Goal : MonoBehaviour
 {
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log("STAAY");
+        /*if (other.tag == "Player")
+            interactable = true;*/
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        /*if (other.tag == "Player")
+            interactable = false;*/
     }
 }

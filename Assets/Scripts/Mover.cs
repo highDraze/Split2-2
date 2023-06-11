@@ -39,10 +39,8 @@ public class Mover : MonoBehaviour
     void FixedUpdate()
     {
         moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        //Debug.Log(moveDirection);
         moveDirection = Camera.main.transform.TransformDirection(moveDirection);
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
-        Debug.Log(moveDirection);
         moveDirection *= MoveSpeed;
 
         //controller.Move(moveDirection * Time.deltaTime);
@@ -50,6 +48,5 @@ public class Mover : MonoBehaviour
         
         float smoothVal = .1f; // Higher = 'Smoother'  
         rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDirection, ref refVel, smoothVal);
-        //Debug.Log(rb.velocity);
     }
 }
