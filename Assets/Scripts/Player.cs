@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
-        GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
+        //GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
     }
 
     public void Interact(InputAction.CallbackContext context)
