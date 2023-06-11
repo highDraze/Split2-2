@@ -62,6 +62,7 @@ public class TileSelector : MonoBehaviour
         for(int i = transform.childCount - 1; i >= 0; --i)
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
+            //Destroy(transform.GetChild(i).gameObject);
         }
 
         foreach(GameObject curObj in Tiles)

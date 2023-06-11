@@ -75,7 +75,7 @@ public class Timer : MonoBehaviour
      private void ProgressTime()
     {
         float currentTime = (maxGameTime - gameTime) / maxGameTime; 
-        float sunRotation = Mathf.Lerp(0, 210, currentTime);
+        float sunRotation = Mathf.Lerp(0, 190, currentTime);
  
         _sun.transform.rotation = Quaternion.Euler(sunRotation, _axisOffset, 0);
  

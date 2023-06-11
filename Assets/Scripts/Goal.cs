@@ -9,6 +9,9 @@ public class Goal : MonoBehaviour
         if (other.tag == "Player" && other.gameObject.GetComponent<Player>().goalGrabbed == false)
         {
             other.gameObject.GetComponent<Player>().goalGrabbed = true;
+
+            FindObjectOfType<GridManager>().randomize_field();
+
             treasure.SetActive(false);
         }
     }
