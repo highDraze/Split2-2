@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     void GrabGoal()
     {
-
+        goalGrabbed = true;
     }
 
     void Update()
