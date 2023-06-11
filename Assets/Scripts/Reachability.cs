@@ -5,6 +5,9 @@ public class Reachability : MonoBehaviour
 {
     public Transform target;
 
+    public delegate void DChangeReachability(bool reachability);
+    public event DChangeReachability ChangeReachability;
+
     public bool Reachable
     {
         get; private set;
@@ -24,11 +27,19 @@ public class Reachability : MonoBehaviour
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            Reachable = true;
+            if (!Reachable)
+            {
+                Reachable = true;
+                ChangeReachability?.Invoke(true);
+            }
         }
         else
         {
-            Reachable = false;
+            if (Reachable)
+            {
+                Reachable = false;
+                ChangeReachability?.Invoke(false);
+            }
         }
     }
 }

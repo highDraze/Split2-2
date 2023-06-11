@@ -211,6 +211,10 @@ MonoBehaviour:
   isDM: 0
   goalInRange: 0
   goalGrabbed: 0
+  invisibilityDelay: 2
+  visibilityDelay: 0.5
+  standardMaterial: {fileID: 2100000, guid: e74bad79ddb23c34887e8689eb6df411, type: 2}
+  invisibleMaterial: {fileID: 2100000, guid: 3fb631ac19d109d908f131dc3c542624, type: 2}
 --- !u!54 &-4908785820247906922
 Rigidbody:
   m_ObjectHideFlags: 0

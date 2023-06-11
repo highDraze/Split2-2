@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -9,9 +10,17 @@ public class Player : MonoBehaviour
     public bool goalInRange;
     public bool goalGrabbed;
 
+    public float invisibilityDelay = 2f;
+    public float visibilityDelay = 0.5f;
+
+    public Material standardMaterial;
+    public Material invisibleMaterial; 
+
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
+        GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
+        GetComponent<Reachability>().ChangeReachability += ChangeReachability;
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -23,9 +32,38 @@ public class Player : MonoBehaviour
         if (goalInRange) GrabGoal();
     }
 
+    void ChangeReachability(bool reachable)
+    {
+        if (isDM) return;
+
+        if (reachable) StartCoroutine(GiveInvisibility());
+        else StartCoroutine(RemoveInvisibility());
+    }
+
+    IEnumerator GiveInvisibility()
+    {
+        yield return new WaitForSeconds(invisibilityDelay);
+
+        if (!GetComponent<Reachability>().Reachable)
+        {
+            int layer = LayerMask.NameToLayer("Invisible");
+            gameObject.layer = layer;
+            GetComponent<Renderer>().material = invisibleMaterial;
+        }
+    }
+
+    IEnumerator RemoveInvisibility()
+    {
+        yield return new WaitForSeconds(visibilityDelay);
+        int layer = LayerMask.NameToLayer("Player");
+        gameObject.layer = layer;
+        GetComponent<Renderer>().material = standardMaterial;
+    }
+
     void GrabGoal()
     {
         goalGrabbed = true;
+        GetComponent<Reachability>().target = FindObjectOfType<ExitGoal>().transform;
     }
 
     void Update()
