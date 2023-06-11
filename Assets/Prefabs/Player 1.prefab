@@ -176,6 +176,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5f753db3-2186-4071-90f6-036ef2001e40
     m_ActionName: PlayerMovement/Join[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c7054f1-64cf-4485-959c-65ccdffbd18a
+    m_ActionName: PlayerMovement/Interact[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
@@ -194,6 +198,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDM: 0
+  goalInRange: 0
+  goalGrabbed: 0
+  invisibilityDelay: 2
+  visibilityDelay: 0.5
+  standardMaterial: {fileID: 2100000, guid: b609142f3e21b7ac490b867f97dc2f34, type: 2}
+  invisibleMaterial: {fileID: 2100000, guid: 3fb631ac19d109d908f131dc3c542624, type: 2}
 --- !u!54 &-4908785820247906922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -429,7 +439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5182197887741048939
 Transform:
   m_ObjectHideFlags: 0
