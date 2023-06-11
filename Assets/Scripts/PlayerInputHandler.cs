@@ -23,10 +23,12 @@ public class PlayerInputHandler : MonoBehaviour
         if (players.Count == 1)
         {
             player.isDM = true;
+            player.gameObject.layer = 9;
             player.transform.position = DMSpawnPosition.position;
         }
         else
         {
+            player.gameObject.layer = 6;
             player.transform.position = PlayerSpawnPositions[players.Count - 2 % 4].position;
             FindObjectOfType<Timer>().stopTimer = false;
         }
