@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
 
     public void MakeInvisible(InputAction.CallbackContext context)
     {
+        Debug.Log("Make Invisible");
         if (!context.performed) return;
 
         if (isDM) return;
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 1f); ;
         invisibilityPosition = new Vector3(-100, -100, -100);
         invisible = false;
+        StartCoroutine(ReactivateInvisibility());
     }
 
     void GrabGoal()
