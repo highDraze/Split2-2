@@ -41,8 +41,11 @@ public class Button_Menu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(menuScene);
-        men= GameObject.Find("Music").GetComponent<AudioSource>();
-        men.Play();
+        men = GameObject.Find("Music").GetComponent<AudioSource>();
+        if(men != null)
+        {
+            men.Play();
+        }
     }
 
     public void EndScenePlayerWon()
