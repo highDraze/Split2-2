@@ -61,8 +61,14 @@ public class TileSelector : MonoBehaviour
     #if UNITY_EDITOR
         for(int i = transform.childCount - 1; i >= 0; --i)
         {
-            DestroyImmediate(transform.GetChild(i).gameObject);
-            //Destroy(transform.GetChild(i).gameObject);
+            if (EditorApplication.isPlaying)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+            else
+            {
+                DestroyImmediate(transform.GetChild(i).gameObject);
+            }
         }
 
         foreach(GameObject curObj in Tiles)
