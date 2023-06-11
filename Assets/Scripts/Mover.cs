@@ -42,8 +42,10 @@ public class Mover : MonoBehaviour
         //Debug.Log(moveDirection);
         moveDirection = Camera.main.transform.TransformDirection(moveDirection);
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+        moveDirection = Vector3.Normalize(moveDirection);
         Debug.Log(moveDirection);
         moveDirection *= MoveSpeed;
+        moveDirection *= Time.fixedDeltaTime * 50.0f;
 
         //controller.Move(moveDirection * Time.deltaTime);
 
