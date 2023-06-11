@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         // Starts the timer automatically
-        //stopTimer = true;
+        stopTimer = true;
         Timerslider.maxValue = gameTime;
         Timerslider.value = gameTime+1;
         buttonMenu = GetComponent<Button_Menu>();
