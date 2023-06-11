@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
     {
         maxGameTime = gameTime;
         // Starts the timer automatically
-        stopTimer = false;
+        // stopTimer = false;
         Timerslider.maxValue = gameTime;
         Timerslider.value = gameTime+1;
         buttonMenu = GetComponent<Button_Menu>();
