@@ -150,7 +150,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.68235296, g: 0.5803922, b: 0.39607844, a: 0}
+    - _AlbedoColor: {r: 0.990566, g: 0.7438198, b: 0.48033106, a: 0}
     - _AmbientColor: {r: 0.18431368, g: 0.1568627, b: 0.3607843, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.24442266, g: 0.7264151, b: 0.32791737, a: 1}

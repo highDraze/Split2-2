@@ -10,17 +10,21 @@ public class Player : MonoBehaviour
     public bool goalInRange;
     public bool goalGrabbed;
 
-    public float invisibilityDelay = 2f;
-    public float visibilityDelay = 0.5f;
+    public float invisibilityCooldown = 5f;
 
     private Vector3 invisibilityPosition;
     private bool invisible;
+    private bool invisibilityActive = true;
 
     public int playerNumber;
 
+    public delegate void DUpdateInvisibilityActive(bool active);
+    public event DUpdateInvisibilityActive UpdateInvisibilityActive;
+
+
     void Awake()
     {
-        GetComponent<Reachability>().ChangeReachability += ChangeReachability;
+        //GetComponent<Reachability>().ChangeReachability += ChangeReachability;
     }
 
     void Start()
@@ -38,7 +42,17 @@ public class Player : MonoBehaviour
         if (goalInRange) GrabGoal();
     }
 
-    void ChangeReachability(bool reachable)
+    public void MakeInvisible(InputAction.CallbackContext context)
+    {
+        Debug.Log("Make Invisible");
+        if (!context.performed) return;
+
+        if (isDM) return;
+
+        if (invisibilityActive) AddInvisibility();
+    }
+
+    /*void ChangeReachability(bool reachable)
     {
         if (isDM) return;
 
@@ -46,20 +60,16 @@ public class Player : MonoBehaviour
 
         if (!reachable) StartCoroutine(GiveInvisibilityCoroutine());
         else StartCoroutine(RemoveInvisibilityCoroutine());
-    }
+    }*/
 
+    /*
     IEnumerator GiveInvisibilityCoroutine()
     {
         yield return new WaitForSeconds(invisibilityDelay);
 
         if (!GetComponent<Reachability>().Reachable)
         {
-            int layer = LayerMask.NameToLayer("Invisible");
-            gameObject.layer = layer;
-            Color col = GetComponentInChildren<SpriteRenderer>().color;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 0.6f); ;
-            invisibilityPosition = transform.position;
-            invisible = true;
+            AddInvisibility();
         }
     }
 
@@ -67,6 +77,25 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(visibilityDelay);
         RemoveInvisibility();
+    }
+    */
+
+    IEnumerator ReactivateInvisibility()
+    {
+        yield return new WaitForSeconds(invisibilityCooldown);
+        invisibilityActive = true;
+    }
+
+    private void AddInvisibility()
+    {
+        invisibilityActive = false;
+        int layer = LayerMask.NameToLayer("Invisible");
+        gameObject.layer = layer;
+        Color col = GetComponentInChildren<SpriteRenderer>().color;
+        GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 0.6f); ;
+        invisibilityPosition = transform.position;
+        invisible = true;
+        UpdateInvisibilityActive?.Invoke(true);
     }
 
     private void RemoveInvisibility()
@@ -77,6 +106,8 @@ public class Player : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 1f); ;
         invisibilityPosition = new Vector3(-100, -100, -100);
         invisible = false;
+        UpdateInvisibilityActive?.Invoke(false);
+        StartCoroutine(ReactivateInvisibility());
     }
 
     void GrabGoal()
@@ -87,13 +118,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
-
-        if (isDM && Input.GetKeyDown(KeyCode.Space))
-        {
-            InstantiateTileAndMove();
-        }
-
         if (invisible && (invisibilityPosition - transform.position).magnitude > 1)
         {
             RemoveInvisibility();

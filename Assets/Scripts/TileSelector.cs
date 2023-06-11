@@ -12,7 +12,9 @@ public class TileSelector : MonoBehaviour
         Line ,
         Curve,
         T,
-        Cross
+        Cross,
+        O,
+        Immovable
         }
 
     public enum Rotation { 
@@ -21,11 +23,8 @@ public class TileSelector : MonoBehaviour
         South,
         East
         }
-
-    public bool isMovable
-    {
-        get; set;
-    } = true;
+    [SerializeField]
+    public bool isMovable = true;
 
     public TileTypes tiletype;
     public Rotation rotation;
