@@ -7002,6 +7002,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4ccdb9364278e4ba05067b94ef2c17, type: 3}
+--- !u!224 &995364487 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8577421867882446330, guid: 4c4ccdb9364278e4ba05067b94ef2c17,
+    type: 3}
+  m_PrefabInstance: {fileID: 995364486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &995364488 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4293191185778447061, guid: 4c4ccdb9364278e4ba05067b94ef2c17,
+    type: 3}
+  m_PrefabInstance: {fileID: 995364486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &995364489 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 860131282956456905, guid: 4c4ccdb9364278e4ba05067b94ef2c17,
+    type: 3}
+  m_PrefabInstance: {fileID: 995364486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &995364490 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8056184263380692341, guid: 4c4ccdb9364278e4ba05067b94ef2c17,
+    type: 3}
+  m_PrefabInstance: {fileID: 995364486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &998936260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15467,6 +15491,31 @@ PrefabInstance:
       propertyPath: PlayerSpawnPositions.Array.data[3]
       value: 
       objectReference: {fileID: 1407557522}
+    - target: {fileID: 2748864872193797276, guid: e957daa0dd39331ac8901378c14bd1d5,
+        type: 3}
+      propertyPath: PlayerInvisibilityButtons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748864872193797276, guid: e957daa0dd39331ac8901378c14bd1d5,
+        type: 3}
+      propertyPath: PlayerInvisibilityButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 995364490}
+    - target: {fileID: 2748864872193797276, guid: e957daa0dd39331ac8901378c14bd1d5,
+        type: 3}
+      propertyPath: PlayerInvisibilityButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 995364489}
+    - target: {fileID: 2748864872193797276, guid: e957daa0dd39331ac8901378c14bd1d5,
+        type: 3}
+      propertyPath: PlayerInvisibilityButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 995364488}
+    - target: {fileID: 2748864872193797276, guid: e957daa0dd39331ac8901378c14bd1d5,
+        type: 3}
+      propertyPath: PlayerInvisibilityButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 995364487}
     - target: {fileID: 3359923270690866626, guid: e957daa0dd39331ac8901378c14bd1d5,
         type: 3}
       propertyPath: m_SplitScreen
