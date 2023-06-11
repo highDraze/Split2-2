@@ -21,11 +21,8 @@ public class TileSelector : MonoBehaviour
         South,
         East
         }
-
-    public bool isMovable
-    {
-        get; set;
-    } = true;
+    [SerializeField]
+    public bool isMovable = true;
 
     public TileTypes tiletype;
     public Rotation rotation;
