@@ -5,6 +5,9 @@ public class Reachability : MonoBehaviour
 {
     public Transform target;
 
+    public delegate void DChangeReachability(bool reachability);
+    public event DChangeReachability ChangeReachability;
+
     public bool Reachable
     {
         get; private set;
@@ -14,6 +17,7 @@ public class Reachability : MonoBehaviour
     void Start()
     {
         //GetComponent<NavMeshAgent>().destination = target.position;
+        ChangeReachability?.Invoke(Reachable);
     }
 
     // Update is called once per frame
@@ -22,13 +26,23 @@ public class Reachability : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
 
+        //Debug.Log($"Reachble {Reachable}");
+
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            Reachable = true;
+            if (!Reachable)
+            {
+                Reachable = true;
+                ChangeReachability?.Invoke(true);
+            }
         }
         else
         {
-            Reachable = false;
+            if (Reachable)
+            {
+                Reachable = false;
+                ChangeReachability?.Invoke(false);
+            }
         }
     }
 }
