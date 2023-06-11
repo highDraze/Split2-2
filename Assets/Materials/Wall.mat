@@ -139,8 +139,8 @@ Material:
     - _RimAmount: 0.058
     - _RimThickness: 1
     - _RimThreshold: 0.35
-    - _ShadowShift: 0.046
-    - _ShadowStep: -0.955
+    - _ShadowShift: 0.992
+    - _ShadowStep: -0.027
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

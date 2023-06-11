@@ -14,14 +14,25 @@ public class Timer : MonoBehaviour
     
     [SerializeField]
     public float gameTime;
+   
+    private float maxGameTime;
     [FormerlySerializedAs("timerIsRunning")] public bool stopTimer = false;
+
+      [Header("Time Params")] 
+    [SerializeField] private float _axisOffset;
+    [SerializeField] private Gradient _nightLight;
+    [SerializeField] private AnimationCurve _sunCurve;
+ 
+    [Header("Objects")]
+    [SerializeField] private Light _sun;
     public Slider Timerslider;
     private Button_Menu buttonMenu;
 
     private void Start()
     {
+        maxGameTime = gameTime;
         // Starts the timer automatically
-        stopTimer = true;
+        stopTimer = false;
         Timerslider.maxValue = gameTime;
         Timerslider.value = gameTime+1;
         buttonMenu = GetComponent<Button_Menu>();
@@ -47,6 +58,7 @@ public class Timer : MonoBehaviour
                 gameTime -= Time.deltaTime;
                 Timerslider.value = gameTime;
                 timerText.text = gameTime.ToString();
+                ProgressTime();
                 DisplayTime(gameTime);
             }
             else
@@ -58,5 +70,16 @@ public class Timer : MonoBehaviour
             }
         }
 
+    }
+
+     private void ProgressTime()
+    {
+        float currentTime = (maxGameTime - gameTime) / maxGameTime; 
+        float sunRotation = Mathf.Lerp(0, 210, currentTime);
+ 
+        _sun.transform.rotation = Quaternion.Euler(sunRotation, _axisOffset, 0);
+ 
+        RenderSettings.ambientLight = _nightLight.Evaluate(currentTime);
+        _sun.intensity = _sunCurve.Evaluate(currentTime); 
     }
 }
