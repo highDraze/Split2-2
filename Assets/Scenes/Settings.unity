@@ -1045,6 +1045,7 @@ MonoBehaviour:
   menuScene: 0
   endScenePlayerWon: 4
   endSceneDMWon: 5
+  pause: 0
 --- !u!1 &2132479461
 GameObject:
   m_ObjectHideFlags: 0

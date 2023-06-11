@@ -12,9 +12,19 @@ public class Button_Menu : MonoBehaviour
     public int menuScene;
     public int endScenePlayerWon;
     public int endSceneDMWon;
+    public int pause;
+
+    public AudioSource ingameM;
+    public AudioSource menuM;
+
+    private bool toggled = false;
     public void Game()
     {
+        menuM.Stop();
+        //ingameM.Play();
+        //DontDestroyOnLoad(ingameM);
         SceneManager.LoadScene(mainGameScene);
+
 
     }
     public void Credits()
@@ -51,7 +61,20 @@ public class Button_Menu : MonoBehaviour
         
             SceneManager.UnloadSceneAsync("Settings"); 
     }
-    
+    void Update()
+    {
+       if(Input.GetButtonDown("Cancel") && toggled==false)
+       {
+        Time.timeScale = 0;
+        toggled = true;
+        SceneManager.LoadScene(pause, LoadSceneMode.Additive);
+       }
+        else if(Input.GetButtonDown("Cancel") && toggled==true)
+        {
+            Time.timeScale = 1;
+            SceneManager.UnloadSceneAsync("Pause"); 
+        }
+    }
     
 }
 
