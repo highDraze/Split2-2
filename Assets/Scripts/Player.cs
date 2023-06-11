@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     public float invisibilityDelay = 2f;
     public float visibilityDelay = 0.5f;
 
-    public Material standardMaterial;
-    public Material invisibleMaterial; 
+    private Vector3 invisibilityPosition;
+    private bool invisible;
+
+    public int playerNumber;
 
     void Awake()
     {
@@ -42,11 +44,11 @@ public class Player : MonoBehaviour
 
         Debug.Log("INVOKE INVIS");
 
-        if (!reachable) StartCoroutine(GiveInvisibility());
-        else StartCoroutine(RemoveInvisibility());
+        if (!reachable) StartCoroutine(GiveInvisibilityCoroutine());
+        else StartCoroutine(RemoveInvisibilityCoroutine());
     }
 
-    IEnumerator GiveInvisibility()
+    IEnumerator GiveInvisibilityCoroutine()
     {
         yield return new WaitForSeconds(invisibilityDelay);
 
@@ -54,16 +56,27 @@ public class Player : MonoBehaviour
         {
             int layer = LayerMask.NameToLayer("Invisible");
             gameObject.layer = layer;
-            GetComponent<Renderer>().material = invisibleMaterial;
+            Color col = GetComponentInChildren<SpriteRenderer>().color;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 0.6f); ;
+            invisibilityPosition = transform.position;
+            invisible = true;
         }
     }
 
-    IEnumerator RemoveInvisibility()
+    IEnumerator RemoveInvisibilityCoroutine()
     {
         yield return new WaitForSeconds(visibilityDelay);
+        RemoveInvisibility();
+    }
+
+    private void RemoveInvisibility()
+    {
         int layer = LayerMask.NameToLayer("Player");
         gameObject.layer = layer;
-        GetComponent<Renderer>().material = standardMaterial;
+        Color col = GetComponentInChildren<SpriteRenderer>().color;
+        GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 1f); ;
+        invisibilityPosition = new Vector3(-100, -100, -100);
+        invisible = false;
     }
 
     void GrabGoal()
@@ -79,6 +92,11 @@ public class Player : MonoBehaviour
         if (isDM && Input.GetKeyDown(KeyCode.Space))
         {
             InstantiateTileAndMove();
+        }
+
+        if (invisible && (invisibilityPosition - transform.position).magnitude > 1)
+        {
+            RemoveInvisibility();
         }
     }
 

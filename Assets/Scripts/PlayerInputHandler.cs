@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void PlayerJoined(Player player)
     {
         players.Add(player);
+        player.playerNumber = players.Count - 1;
 
         if (players.Count == 1)
         {
