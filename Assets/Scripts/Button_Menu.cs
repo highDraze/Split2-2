@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class Button_Menu : MonoBehaviour
 {
-    [FormerlySerializedAs("startScene")] public int mainGameScene;
+    public int mainGameScene;
     public int creditScene;
     public int settingScene;
     public int menuScene;
@@ -21,7 +21,9 @@ public class Button_Menu : MonoBehaviour
     private bool toggled = false;
     public void Game()
     {
-        menuM.Stop();
+        if(menuM!=null){
+            menuM.Stop();
+        }
         //ingameM.Play();
         //DontDestroyOnLoad(ingameM);
         SceneManager.LoadScene(mainGameScene);

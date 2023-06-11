@@ -271,7 +271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -180}
+  m_AnchoredPosition: {x: -542.7, y: -232.4}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &190697699
@@ -321,7 +321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2065643018}
         m_TargetAssemblyTypeName: Button_Menu, Assembly-CSharp
-        m_MethodName: back
+        m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -907.26, y: -28.6}
+  m_AnchoredPosition: {x: -1035.9, y: 133.3}
   m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250571798
@@ -436,7 +436,18 @@ MonoBehaviour:
     Programmer
     Input
 
-    Programmer Shaders'
+    Programmer Shaders
+
+    Programmer / Team Lead
+
+    Programmer / Character
+
+    Programmer
+    / Logic
+
+    Programmer / Logic
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d58cf10a42336aa4d8b27f18fd106dc1, type: 2}
   m_sharedMaterial: {fileID: -8282304665119695473, guid: d58cf10a42336aa4d8b27f18fd106dc1,
@@ -572,13 +583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Nayrutes
-
-    Eliminator
-
-    Varzival
-
-    Rasmus'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d58cf10a42336aa4d8b27f18fd106dc1, type: 2}
   m_sharedMaterial: {fileID: -8282304665119695473, guid: d58cf10a42336aa4d8b27f18fd106dc1,
@@ -958,8 +963,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -17.04}
-  m_SizeDelta: {x: 1000, y: 200}
+  m_AnchoredPosition: {x: -70.3, y: 146.77}
+  m_SizeDelta: {x: 1100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094148394
 MonoBehaviour:
@@ -981,7 +986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Guiseppe Bistecca
+  m_text: 'Leo Jungkunz
 
     Jonas Braukmann
 
@@ -989,8 +994,16 @@ MonoBehaviour:
 
     Haruka Hikari
 
-    Chrylt
+    Christiane
+    Kobalt
 
+    Nayrutes
+
+    Eliminator
+
+    Varzival
+
+    Rasmus
 
 
 
@@ -1036,7 +1049,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 0.78
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1344,16 +1357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer / Team Lead
-
-    Programmer / Character
-
-    Programmer / Logic
-
-    Programmer
-    / Logic
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d58cf10a42336aa4d8b27f18fd106dc1, type: 2}
   m_sharedMaterial: {fileID: -8282304665119695473, guid: d58cf10a42336aa4d8b27f18fd106dc1,
@@ -1761,7 +1765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 141.72}
+  m_AnchoredPosition: {x: -602.44, y: 305.6}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091154774
