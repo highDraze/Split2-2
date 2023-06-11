@@ -6,6 +6,12 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     public bool isDM;
+    public InputAction interactAction;
+
+    void Awake()
+    {
+        interactAction.performed += context => InstantiateTileAndMove();
+    }
 
     void Start()
     {
@@ -24,6 +30,8 @@ public class Player : MonoBehaviour
 
     void InstantiateTileAndMove()
     {
+        if (!isDM) return;
+
         GridManager manager = FindObjectOfType<GridManager>();
         GridMover mover = FindObjectOfType<GridMover>();
         GridSpawner spawner = FindObjectOfType<GridSpawner>();
