@@ -12,7 +12,9 @@ public class TileSelector : MonoBehaviour
         Line ,
         Curve,
         T,
-        Cross
+        Cross,
+        O,
+        Immovable
         }
 
     public enum Rotation { 

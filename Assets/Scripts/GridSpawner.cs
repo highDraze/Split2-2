@@ -47,7 +47,7 @@ public class GridSpawner : MonoBehaviour
                 if(create_rand)
                 {
                     TileSelector curTile = Tiles.getTile(x, z);
-                    curTile.tiletype = (TileSelector.TileTypes)Random.Range(1, 5);
+                    curTile.tiletype = (TileSelector.TileTypes)Random.Range(1, 7);
                     curTile.rotation = (TileSelector.Rotation)Random.Range(0,4);
                     curTile.ChangeTileType();
                 }
