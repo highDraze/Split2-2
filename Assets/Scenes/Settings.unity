@@ -913,6 +913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338787314}
   - component: {fileID: 1338787315}
+  - component: {fileID: 1338787316}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -988,13 +989,38 @@ MonoBehaviour:
   m_FillRect: {fileID: 1594476329}
   m_HandleRect: {fileID: 1787679071}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1338787316}
+        m_TargetAssemblyTypeName: Volume, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &1338787316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338787313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc73b2c4a1e7a14b8381233afe990b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 96a90cc84f027a64b921fb10d39f6b2b, type: 2}
 --- !u!1 &1417896533
 GameObject:
   m_ObjectHideFlags: 0
