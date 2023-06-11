@@ -17,6 +17,7 @@ public class Reachability : MonoBehaviour
     void Start()
     {
         //GetComponent<NavMeshAgent>().destination = target.position;
+        ChangeReachability?.Invoke(Reachable);
     }
 
     // Update is called once per frame
@@ -24,6 +25,8 @@ public class Reachability : MonoBehaviour
     {
         NavMeshPath path = new NavMeshPath();
         NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
+
+        //Debug.Log($"Reachble {Reachable}");
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {

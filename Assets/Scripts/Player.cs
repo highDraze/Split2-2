@@ -16,11 +16,15 @@ public class Player : MonoBehaviour
     public Material standardMaterial;
     public Material invisibleMaterial; 
 
+    void Awake()
+    {
+        GetComponent<Reachability>().ChangeReachability += ChangeReachability;
+    }
+
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
         GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
-        GetComponent<Reachability>().ChangeReachability += ChangeReachability;
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -36,7 +40,9 @@ public class Player : MonoBehaviour
     {
         if (isDM) return;
 
-        if (reachable) StartCoroutine(GiveInvisibility());
+        Debug.Log("INVOKE INVIS");
+
+        if (!reachable) StartCoroutine(GiveInvisibility());
         else StartCoroutine(RemoveInvisibility());
     }
 
