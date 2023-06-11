@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wall
-  m_Shader: {fileID: -6465566751694194690, guid: d1144c4350d2324448b27d686021ffc7,
+  m_Shader: {fileID: -6465566751694194690, guid: 6bea8be3b13ec3040aa2ca0bd91cadcf,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
