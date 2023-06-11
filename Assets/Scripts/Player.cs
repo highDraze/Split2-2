@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
         if (isDM) return;
 
-        if (!invisibilityActive) AddInvisibility();
+        if (invisibilityActive) AddInvisibility();
     }
 
     /*void ChangeReachability(bool reachable)
