@@ -7,7 +7,7 @@ public class GridManager : MonoBehaviour
     GridSpawner spawner;
     int dim_x = 8;
     int dim_z = 8;
-    TileGridArr TileArr;
+    public TileGridArr TileArr;
     // Start is called before the first frame update
     void Start()
     {
@@ -129,13 +129,15 @@ public class GridManager : MonoBehaviour
         return side;
     }
 
-    public Vector2Int playerToGridPosition(Vector3 player_pos)
+    public Vector2Int playerToGridPosition(Vector3 player_pos, bool snap = true)
     {
         int x = Mathf.RoundToInt(player_pos.x);
         int z = Mathf.RoundToInt(player_pos.z);
         int side = getPlayerSide(player_pos);
 
-        switch(side)
+        if(snap)
+        {
+            switch(side)
         {
             case 0:
                 z = 0;
@@ -152,6 +154,7 @@ public class GridManager : MonoBehaviour
             default:
                 Debug.Log("Side not in [0,4]");
                 break;
+        }
         }
         return new Vector2Int(x, z);
     }

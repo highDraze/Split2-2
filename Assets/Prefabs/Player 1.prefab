@@ -231,6 +231,7 @@ MonoBehaviour:
   goalGrabbed: 0
   invisibilityCooldown: 5
   playerNumber: 0
+  activePlayerMove: 1
 --- !u!54 &-4908785820247906922
 Rigidbody:
   m_ObjectHideFlags: 0

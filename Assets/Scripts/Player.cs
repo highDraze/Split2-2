@@ -17,20 +17,35 @@ public class Player : MonoBehaviour
     private bool invisibilityActive = true;
 
     public int playerNumber;
+    GridManager gridManager;
 
     public delegate void DUpdateInvisibilityActive(bool active);
     public event DUpdateInvisibilityActive UpdateInvisibilityActive;
 
+    Vector2Int curGridPos;
+    TileSelector curStandingTile;
+    TileGridArr TileArr;
+
+    public bool activePlayerMove;
 
     void Awake()
     {
         //GetComponent<Reachability>().ChangeReachability += ChangeReachability;
+        if(!isDM && activePlayerMove)
+        {
+            gridManager = GameObject.FindAnyObjectByType<GridManager>();
+            TileArr = gridManager.TileArr;
+            curGridPos = gridManager.playerToGridPosition(transform.position, false);
+            Debug.Log(curGridPos);
+            curStandingTile = TileArr.getTile(curGridPos.x, curGridPos.y);
+            curStandingTile.isMovable = false;
+        }
     }
 
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
-        GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
+        //GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -39,17 +54,17 @@ public class Player : MonoBehaviour
 
         if (isDM) InstantiateTileAndMove();
 
-        if (goalInRange) GrabGoal();
+        /*if (goalInRange) GrabGoal();*/
     }
 
     public void MakeInvisible(InputAction.CallbackContext context)
     {
-        Debug.Log("Make Invisible");
+        /*Debug.Log("Make Invisible");
         if (!context.performed) return;
 
         if (isDM) return;
 
-        if (invisibilityActive) AddInvisibility();
+        if (invisibilityActive) AddInvisibility();*/
     }
 
     /*void ChangeReachability(bool reachable)
@@ -113,7 +128,7 @@ public class Player : MonoBehaviour
     void GrabGoal()
     {
         goalGrabbed = true;
-        GetComponent<Reachability>().target = FindObjectOfType<ExitGoal>().transform;
+        // GetComponent<Reachability>().target = FindObjectOfType<ExitGoal>().transform;
     }
 
     void Update()
@@ -121,6 +136,21 @@ public class Player : MonoBehaviour
         if (invisible && (invisibilityPosition - transform.position).magnitude > 1)
         {
             RemoveInvisibility();
+        }
+    }
+
+    void FixedUpdate()
+    {   
+        if(!isDM && activePlayerMove)
+        {
+            Vector2Int tempGridPos = gridManager.playerToGridPosition(transform.position, false);
+            if(curGridPos != tempGridPos)
+            {
+                curGridPos = tempGridPos;
+                curStandingTile.isMovable = true;
+                curStandingTile = TileArr.getTile(curGridPos.x, curGridPos.y);
+                curStandingTile.isMovable = false;
+            }
         }
     }
 
