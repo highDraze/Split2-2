@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
 
     public int playerNumber;
 
+    public delegate void DUpdateInvisibilityActive(bool active);
+    public event DUpdateInvisibilityActive UpdateInvisibilityActive;
+
+
     void Awake()
     {
         //GetComponent<Reachability>().ChangeReachability += ChangeReachability;
@@ -91,6 +95,7 @@ public class Player : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 0.6f); ;
         invisibilityPosition = transform.position;
         invisible = true;
+        UpdateInvisibilityActive?.Invoke(true);
     }
 
     private void RemoveInvisibility()
@@ -101,6 +106,7 @@ public class Player : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, 1f); ;
         invisibilityPosition = new Vector3(-100, -100, -100);
         invisible = false;
+        UpdateInvisibilityActive?.Invoke(false);
         StartCoroutine(ReactivateInvisibility());
     }
 
