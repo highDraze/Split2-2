@@ -181,7 +181,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The end \nDM won!"
+  m_text: 'Game
+
+    Over'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5ca4e5622e745c4e93d24bfd2c702ec, type: 2}
   m_sharedMaterial: {fileID: 6198967930091460354, guid: e5ca4e5622e745c4e93d24bfd2c702ec,
