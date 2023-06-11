@@ -2251,7 +2251,7 @@ MonoBehaviour:
   menuScene: 0
   endScenePlayerWon: 4
   endSceneDMWon: 5
-  pause: 0
+  pause: 6
   ingameM: {fileID: 840853446}
   menuM: {fileID: 1817847946}
 --- !u!114 &2065643018

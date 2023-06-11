@@ -889,6 +889,9 @@ MonoBehaviour:
   menuScene: 0
   endScenePlayerWon: 4
   endSceneDMWon: 5
+  pause: 6
+  ingameM: {fileID: 0}
+  menuM: {fileID: 0}
 --- !u!1 &951166322
 GameObject:
   m_ObjectHideFlags: 0

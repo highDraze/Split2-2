@@ -25,7 +25,6 @@ public class Button_Menu : MonoBehaviour
         //DontDestroyOnLoad(ingameM);
         SceneManager.LoadScene(mainGameScene);
 
-
     }
     public void Credits()
     {
@@ -61,8 +60,9 @@ public class Button_Menu : MonoBehaviour
         
             SceneManager.UnloadSceneAsync("Settings"); 
     }
-    void Update()
+    public void Update()
     {
+        /*
        if(Input.GetButtonDown("Cancel") && toggled==false)
        {
         Time.timeScale = 0;
@@ -73,7 +73,7 @@ public class Button_Menu : MonoBehaviour
         {
             Time.timeScale = 1;
             SceneManager.UnloadSceneAsync("Pause"); 
-        }
+        }*/
     }
     
 }

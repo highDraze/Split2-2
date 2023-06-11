@@ -426,16 +426,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer
+  m_text: 'Lead Artist
 
     Sound / UI / PostProcessing
 
-    Shaders / 3D Artist
-
-    Lead
     Artist
 
-    Programmer'
+    Programmer
+    Input
+
+    Programmer Shaders'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d58cf10a42336aa4d8b27f18fd106dc1, type: 2}
   m_sharedMaterial: {fileID: -8282304665119695473, guid: d58cf10a42336aa4d8b27f18fd106dc1,
@@ -571,11 +571,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Eliminator
+  m_text: 'Nayrutes
+
+    Eliminator
 
     Varzival
-
-    Nayrutes
 
     Rasmus'
   m_isRightToLeft: 0
@@ -1194,13 +1194,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer
+  m_text: 'Programmer / Team Lead
+
+    Programmer / Character
+
+    Programmer / Logic
 
     Programmer
-
-    Programmer
-
-    Programmer
+    / Logic
 
 '
   m_isRightToLeft: 0
@@ -1572,6 +1573,9 @@ MonoBehaviour:
   menuScene: 0
   endScenePlayerWon: 4
   endSceneDMWon: 5
+  pause: 6
+  ingameM: {fileID: 0}
+  menuM: {fileID: 0}
 --- !u!1 &2091154772
 GameObject:
   m_ObjectHideFlags: 0
