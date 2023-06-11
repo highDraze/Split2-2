@@ -17,20 +17,32 @@ public class Player : MonoBehaviour
     private bool invisibilityActive = true;
 
     public int playerNumber;
+    GridManager gridManager;
 
     public delegate void DUpdateInvisibilityActive(bool active);
     public event DUpdateInvisibilityActive UpdateInvisibilityActive;
 
-
+    Vector2Int curGridPos;
+    TileSelector curStandingTile;
+    TileGridArr TileArr;
     void Awake()
     {
         //GetComponent<Reachability>().ChangeReachability += ChangeReachability;
+        if(!isDM)
+        {
+            gridManager = GameObject.FindAnyObjectByType<GridManager>();
+            TileArr = gridManager.TileArr;
+            curGridPos = gridManager.playerToGridPosition(transform.position, false);
+            Debug.Log(curGridPos);
+            curStandingTile = TileArr.getTile(curGridPos.x, curGridPos.y);
+            curStandingTile.isMovable = false;
+        }
     }
 
     void Start()
     {
         FindObjectOfType<PlayerInputHandler>().PlayerJoined(this);
-        GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
+        //GetComponent<Reachability>().target = FindObjectOfType<Goal>().transform;
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -121,6 +133,21 @@ public class Player : MonoBehaviour
         if (invisible && (invisibilityPosition - transform.position).magnitude > 1)
         {
             RemoveInvisibility();
+        }
+    }
+
+    void FixedUpdate()
+    {   
+        if(!isDM)
+        {
+            Vector2Int tempGridPos = gridManager.playerToGridPosition(transform.position, false);
+            if(curGridPos != tempGridPos)
+            {
+                curGridPos = tempGridPos;
+                curStandingTile.isMovable = true;
+                curStandingTile = TileArr.getTile(curGridPos.x, curGridPos.y);
+                curStandingTile.isMovable = false;
+            }
         }
     }
 
