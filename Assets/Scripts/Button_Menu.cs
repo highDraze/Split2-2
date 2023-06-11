@@ -16,6 +16,7 @@ public class Button_Menu : MonoBehaviour
 
     public AudioSource ingameM;
     public AudioSource menuM;
+    private AudioSource men;
 
     private bool toggled = false;
     public void Game()
@@ -40,6 +41,8 @@ public class Button_Menu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(menuScene);
+        men= GameObject.Find("Music").GetComponent<AudioSource>();
+        men.Play();
     }
 
     public void EndScenePlayerWon()
