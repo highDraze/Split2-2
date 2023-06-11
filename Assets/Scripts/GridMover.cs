@@ -2,6 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GridMover : MonoBehaviour
 {
@@ -25,15 +26,6 @@ public class GridMover : MonoBehaviour
 
     void Start()
     {
-        /*TileGridArr tileGridArr = FindObjectOfType<GridSpawner>().Tiles;
-
-        for (int i=0; i<8; i += 1)
-        {
-            tiles.Add(tileGridArr.getTile(i, 5));
-        }
-
-
-        MoveTiles(tiles.ToArray(), Direction.DOWN);*/
 
     }
 
@@ -41,12 +33,12 @@ public class GridMover : MonoBehaviour
     {
         // Instantiate new Tile
         GameObject child = Instantiate(TileToSpawn, transform);
-        //child.transform.Rotate(0, 90 * (int)rotation, 0, Space.Self);
+
         child.transform.localPosition = new Vector3(x, 0, z);
         TileSelector selector = child.GetComponent<TileSelector>();
 
-        // TODO ändern
-        selector.tiletype = TileSelector.TileTypes.Line;
+        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 2);
+        selector.rotation = (TileSelector.Rotation)Random.Range(0, 4);
 
         return selector;
     }
@@ -75,7 +67,7 @@ public class GridMover : MonoBehaviour
 
         Debug.Log($"move direction ${direction}");
 
-        foreach(TileSelector tile in tiles)
+        foreach (TileSelector tile in tiles)
         {
             tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
         }
@@ -84,6 +76,9 @@ public class GridMover : MonoBehaviour
 
     IEnumerator MoveCoroutine(IEnumerable<TileSelector> tiles)
     {
+        var dim_x = FindObjectOfType<GridSpawner>().dim_x;
+        var dim_z = FindObjectOfType<GridSpawner>().dim_z;
+
         StartMove?.Invoke();
         yield return new WaitForSeconds(MoveDuration);
         EndMove?.Invoke();
@@ -91,6 +86,11 @@ public class GridMover : MonoBehaviour
         foreach (TileSelector tile in tiles)
         {
             tile.isMovable = true;
+            /*if (tile.transform.position.x >= dim_x || tile.transform.position.z >= dim_z || tile.transform.position.x < 0 || tile.transform.position.z < 0)
+            {
+                Destroy(tile.transform.gameObject);
+            }*/
         }
+        Destroy(tiles.Last().transform.gameObject);
     }
 }

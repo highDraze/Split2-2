@@ -25,7 +25,7 @@ public class TileSelector : MonoBehaviour
     public bool isMovable
     {
         get; set;
-    }
+    } = true;
 
     public TileTypes tiletype;
     public Rotation rotation;
@@ -39,7 +39,6 @@ public class TileSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isMovable = true;
         ChangeTileType();
     }
 
@@ -63,8 +62,6 @@ public class TileSelector : MonoBehaviour
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
-
-        Debug.Log($"Added a tile of type {tiletype}");
 
         foreach(GameObject curObj in Tiles)
         {
@@ -104,7 +101,6 @@ public class TileSelector : MonoBehaviour
                     break;
                 }
         }
-
     # endif
     }
   

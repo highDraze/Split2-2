@@ -21,28 +21,25 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetKeyDown(KeyCode.K))
-        // {
-        //    funDelete(); 
-        // }
+
     }
 
     public bool playerIsOnGridSide(Vector3 player_pos)
     {
-        Vector2Int grid_pos = playerToGridPosition(player_pos);
-
         int in_x = 0;
         int in_z = 0;
-        if(grid_pos.x < dim_x && grid_pos.x >= 0)
+        if(player_pos.x < dim_x - 0.5 && player_pos.x > -0.5)
         {
             in_x = 1;
         } 
-        if(grid_pos.y < dim_z && grid_pos.y >= 0)
+        if(player_pos.z < dim_z - 0.5 && player_pos.z > -0.5)
         {
             in_z = 1;
-        } 
+        }
 
-        return in_x + in_z != 0 ? true : false;
+        Debug.Log($"player on grid side {in_x}, {in_z}");
+
+        return in_x + in_z == 1;
     }
     // Returns the idx based on the player position and side he is on.
     // If his x/z pos is smaller 0 the idx for the array needs to be increased (i.e. 0, 1, ,2, 3)
@@ -84,10 +81,10 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < arr_len; ++i)
+        /*for(int i = 0; i < arr_len; ++i)
         {
             Debug.Log($"0 : {idx[i, 0]}, 1 : {idx[i, 1]}");
-        }
+        }*/
 
         return idx;
     }
@@ -102,11 +99,11 @@ public class GridManager : MonoBehaviour
        
         int side = -1; 
 
-        int up = player_position.z <= 0.0f ? 0 : -1;
-        int left = player_position.x <= 0.0f ? 0 : -1;
+        int up = player_position.z <= -0.5f ? 0 : -1;
+        int left = player_position.x <= -0.5f ? 0 : -1;
 
-        up += player_position.z >= dim_z ? 2 : 0;
-        left += player_position.x >= dim_x ? 2 : 0;
+        up += player_position.z >= dim_z - 0.5f ? 2 : 0;
+        left += player_position.x >= dim_x - 0.5f ? 2 : 0;
 
         if (up == 0)
         {
@@ -180,35 +177,24 @@ public class GridManager : MonoBehaviour
             TileSelector temp = TileArr.getTile(idx[i - 1,0], idx[i - 1, 1]);
             if(temp.isMovable)
             {
-                temp.isMovable = false;
                 Tiles[i] = temp;
             }
             else{
-                Tiles = null;
-                break;
+                return null;
             }
         }
 
-        if(Tiles != null)
-        {
+
         for(int i = 0; i < idx.GetLength(0); ++i)
-            {
-                TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
-            }
+        {
+            //Debug.Log($"Setting {idx[i, 0]},{idx[i, 1]}");
+            Tiles[i].isMovable = false;
+            TileArr.setTile(idx[i,0], idx[i, 1], Tiles[i]);
         }
+        Tiles[idx.GetLength(0)].isMovable = false;
         
         return Tiles;
     }
-
-    // void funDelete()
-    // {
-    //     TileSelector[] Tiles = playerInteraction(new Vector3(5, 0, -1)); 
-
-    //     for(int i = 0; i < Tiles.Length; ++i)
-    //     {
-    //         Destroy(Tiles[i].gameObject);
-    //     }
-    // }
 
 }
 
