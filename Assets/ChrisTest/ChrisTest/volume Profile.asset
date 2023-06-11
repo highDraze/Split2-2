@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   lift:
-    m_OverrideState: 1
-    m_Value: {x: 0.9935321, y: 0.9219456, z: 1, w: -0.0025425039}
+    m_OverrideState: 0
+    m_Value: {x: 0.91420895, y: 1, z: 0.9808511, w: 0.037537657}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.99268615, z: 0.89379334, w: -0.07564882}
+    m_Value: {x: 1, y: 0.94034714, z: 0.9429103, w: 0.02455159}
   gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 0.93068945, z: 0.95817184, w: -0.1821932}
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 0.9661689, z: 0.97230697, w: -0.021872545}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,16 +54,16 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.08896405, g: 0.09221206, b: 0.13207549, a: 1}
+    m_Value: {r: 0.3962264, g: 0.34190297, b: 0.296796, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.32
+    m_Value: 0.406
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.155
+    m_Value: 0.204
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.13789527
-          value: 0.4912089
+          time: 0.102782495
+          value: 0.36987966
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.32192844
-          value: 0.49670345
+          time: 0.27597955
+          value: 0.5385544
           inSlope: 0.14770222
           outSlope: 0.14770222
           tangentMode: 0
@@ -319,8 +319,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.6899948
-          value: 0.557143
+          time: 0.6678024
+          value: 0.4963857
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.87143594
-          value: 0.48571444
+          time: 0.84951735
+          value: 0.36385554
           inSlope: 0
           outSlope: 0
           tangentMode: 0
