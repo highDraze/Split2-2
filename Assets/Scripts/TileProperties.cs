@@ -8,7 +8,10 @@ public class TileProperties : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(myType == TileSelector.TileTypes.Immovable || myType == TileSelector.TileTypes.Treasure)
+        {
+            gameObject.transform.parent.GetComponent<TileSelector>().isMovable = false;
+        }
     }
 
     // Update is called once per frame
