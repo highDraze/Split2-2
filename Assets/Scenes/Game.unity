@@ -10564,7 +10564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407557521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.4, z: 7}
+  m_LocalPosition: {x: -0.21, y: 0.4, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11548,7 +11548,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c108be59f4eba6e4790c04340026e5df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 6.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c108be59f4eba6e4790c04340026e5df,
         type: 3}
@@ -11558,7 +11558,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c108be59f4eba6e4790c04340026e5df,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.074
+      value: 7.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c108be59f4eba6e4790c04340026e5df,
         type: 3}
@@ -13245,7 +13245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709009161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0.84, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15695,7 +15695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087118781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 7}
+  m_LocalPosition: {x: -0.1, y: 0.4, z: 0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16233,6 +16233,72 @@ PrefabInstance:
       addedObject: {fileID: 151874830}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ec3d786aa37d9c4887f482b10282468, type: 3}
+--- !u!4 &1574517259806765601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202858041012955291}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 0.28, z: -0.01}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2202858041012955291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574517259806765601}
+  - component: {fileID: 2202858041012955293}
+  - component: {fileID: 2202858041012955292}
+  m_Layer: 0
+  m_Name: TreasureTable (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2202858041012955292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202858041012955291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1b82697dcab63ceaf97fefbca6e83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2202858041012955293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202858041012955291}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6, y: 0.6368599, z: 1.6}
+  m_Center: {x: 0, y: 0.31842995, z: 0}
 --- !u!1001 &4431070388994379993
 PrefabInstance:
   m_ObjectHideFlags: 0
