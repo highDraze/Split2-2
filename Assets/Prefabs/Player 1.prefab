@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 5764887039848963184}
   - component: {fileID: -4908785820247906922}
   - component: {fileID: 1592920805100989072}
-  m_Layer: 0
+  - component: {fileID: 8312364316308329792}
+  m_Layer: 6
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,9 +178,37 @@ MonoBehaviour:
     m_ActionId: 5f753db3-2186-4071-90f6-036ef2001e40
     m_ActionName: PlayerMovement/Join[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5764887039848963184}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_ActionId: 2c7054f1-64cf-4485-959c-65ccdffbd18a
     m_ActionName: PlayerMovement/Interact[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5764887039848963184}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: MakeInvisible
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 542d63cc-5bbc-45b6-a5bf-0320ac18b914
+    m_ActionName: PlayerMovement/MakeInvisible[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerMovement
@@ -200,10 +229,8 @@ MonoBehaviour:
   isDM: 0
   goalInRange: 0
   goalGrabbed: 0
-  invisibilityDelay: 2
-  visibilityDelay: 0.5
-  standardMaterial: {fileID: 2100000, guid: b609142f3e21b7ac490b867f97dc2f34, type: 2}
-  invisibleMaterial: {fileID: 2100000, guid: 3fb631ac19d109d908f131dc3c542624, type: 2}
+  invisibilityCooldown: 5
+  playerNumber: 0
 --- !u!54 &-4908785820247906922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -254,6 +281,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8312364316308329792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072321110470536728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d938172e6742e6aa5b1792e92b3dbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &2462618144945475355
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +306,7 @@ GameObject:
   - component: {fileID: 3098542693258788485}
   - component: {fileID: 9112337536500569910}
   - component: {fileID: 1339329866385120937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DMVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8977966778170149219}
   - component: {fileID: 7191796603814646838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,13 +473,13 @@ GameObject:
   - component: {fileID: 8784714093749981838}
   - component: {fileID: 2664570936747145728}
   - component: {fileID: 3132030313997247342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5182197887741048939
 Transform:
   m_ObjectHideFlags: 0
