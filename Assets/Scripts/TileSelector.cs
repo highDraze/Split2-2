@@ -57,7 +57,7 @@ public class TileSelector : MonoBehaviour
     [ContextMenu("Change")]
     public void ChangeTileType()
     { 
-    # if UNITY_EDITOR
+    #if UNITY_EDITOR
         for(int i = transform.childCount - 1; i >= 0; --i)
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
@@ -80,7 +80,7 @@ public class TileSelector : MonoBehaviour
         }
         EditorUtility.SetDirty(this);
 
-        # else
+        #else
             for(int i = transform.childCount - 1; i >= 0; --i)
             {
                 Destroy(transform.GetChild(i).gameObject);
@@ -90,7 +90,7 @@ public class TileSelector : MonoBehaviour
             {
                 if (curObj.GetComponent<TileProperties>().myType == tiletype)
                 {
-                    GameObject child = (GameObject)PrefabUtility.Instantiate(curObj);
+                    GameObject child = (GameObject)Instantiate(curObj);
                     if(child == null)
                     {
                         Debug.Log($"Error instantiating a tile of type {tiletype}");
@@ -101,7 +101,7 @@ public class TileSelector : MonoBehaviour
                     break;
                 }
         }
-    # endif
+    #endif
     }
   
 }

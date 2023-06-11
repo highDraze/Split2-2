@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: d5fa07f2d62a33a6b9cf2f10b10dc4cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credits.unity
     guid: 64d577c290eac9c45ab437fafa278b24
   - enabled: 1
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LogicRasmus.unity
     guid: 1304f81bf08286b47ac16b093b6581d4
   m_configObjects:

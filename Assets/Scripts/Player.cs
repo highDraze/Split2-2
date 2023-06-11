@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, 0.3f, transform.position.z);
 
         if (isDM && Input.GetKeyDown(KeyCode.Space))
         {
