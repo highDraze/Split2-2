@@ -5,13 +5,13 @@ public class Goal : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        /*if (other.tag == "Player")
-            interactable = true;*/
+        if (other.tag == "Player")
+            other.gameObject.GetComponent<Player>().goalInRange = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        /*if (other.tag == "Player")
-            interactable = false;*/
+        if (other.tag == "Player")
+            other.gameObject.GetComponent<Player>().goalInRange = false;
     }
 }
