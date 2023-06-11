@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LogicRasmus.unity
     guid: 1304f81bf08286b47ac16b093b6581d4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game2.unity
     guid: d5fa07f2d62a33a6b9cf2f10b10dc4cc
   - enabled: 1
