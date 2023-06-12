@@ -123,6 +123,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3727527164402811800, guid: 75e588e712b59167fb5bb9abd970a075,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4833978458156565125, guid: 75e588e712b59167fb5bb9abd970a075,
         type: 3}
       propertyPath: m_RootOrder
@@ -331,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3727527164402811800, guid: 75e588e712b59167fb5bb9abd970a075,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4833978458156565125, guid: 75e588e712b59167fb5bb9abd970a075,
         type: 3}
       propertyPath: m_RootOrder
@@ -420,6 +430,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3448406033556497887}
     m_Modifications:
+    - target: {fileID: 1985111805744096773, guid: 75e588e712b59167fb5bb9abd970a075,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3455954398054467508, guid: 75e588e712b59167fb5bb9abd970a075,
         type: 3}
       propertyPath: m_Name
@@ -429,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727527164402811800, guid: 75e588e712b59167fb5bb9abd970a075,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4833978458156565125, guid: 75e588e712b59167fb5bb9abd970a075,
         type: 3}

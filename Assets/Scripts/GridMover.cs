@@ -6,7 +6,7 @@ using System.Linq;
 
 public class GridMover : MonoBehaviour
 {
-    public float MoveDuration = 1f;
+    public float MoveDuration = 0.6f;
 
     public delegate void DStartMove();
     public static event DStartMove StartMove;
@@ -34,10 +34,10 @@ public class GridMover : MonoBehaviour
         // Instantiate new Tile
         GameObject child = Instantiate(TileToSpawn, transform);
 
-        child.transform.localPosition = new Vector3(x, 0, z);
+        child.transform.localPosition = new Vector3(x, -1.0f, z);
         TileSelector selector = child.GetComponent<TileSelector>();
 
-        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 2);
+        selector.tiletype = (TileSelector.TileTypes)Random.Range(1, 4);
         selector.rotation = (TileSelector.Rotation)Random.Range(0, 4);
 
         return selector;
@@ -67,9 +67,21 @@ public class GridMover : MonoBehaviour
 
         Debug.Log($"move direction ${direction}");
 
-        foreach (TileSelector tile in tiles)
+        foreach(TileSelector tile in tiles)
         {
-            tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
+            if(tile == tiles.First())
+            {
+                tile.transform.DOMove(tile.transform.position + new Vector3(0, 1, 0) + toOffset, MoveDuration);
+            }
+            else if (tile == tiles.Last())
+            {   
+                tile.transform.DOMove(tile.transform.position + new Vector3(0, -1.4f, 0) + toOffset, MoveDuration);
+            }
+            else
+            {
+                tile.transform.DOMove(tile.transform.position + toOffset, MoveDuration);
+            }
+
         }
         StartCoroutine(MoveCoroutine(tiles));
     }
@@ -92,5 +104,6 @@ public class GridMover : MonoBehaviour
             }*/
         }
         Destroy(tiles.Last().transform.gameObject);
+        Destroy(GameObject.FindWithTag("MoveCollider"));
     }
 }

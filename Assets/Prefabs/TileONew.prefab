@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3727527164402811800, guid: 75e588e712b59167fb5bb9abd970a075,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4833978458156565125, guid: 75e588e712b59167fb5bb9abd970a075,
         type: 3}
       propertyPath: m_RootOrder

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     public int playerNumber;
     GridManager gridManager;
+    public GameObject moveCollider;
 
     public delegate void DUpdateInvisibilityActive(bool active);
     public event DUpdateInvisibilityActive UpdateInvisibilityActive;
@@ -147,10 +148,13 @@ public class Player : MonoBehaviour
             if(curGridPos != tempGridPos)
             {
                 curGridPos = tempGridPos;
-                curStandingTile.isMovable = true;
+                if(curStandingTile.tiletype != TileSelector.TileTypes.Door && curStandingTile.tiletype != TileSelector.TileTypes.Immovable)
+                {
+                    curStandingTile.isMovable = true;
+                }
                 curStandingTile = TileArr.getTile(curGridPos.x, curGridPos.y);
-                curStandingTile.isMovable = false;
             }
+            curStandingTile.isMovable = false;
         }
     }
 
@@ -163,6 +167,7 @@ public class Player : MonoBehaviour
         int side = manager.getPlayerSide(transform.position);
 
         Vector2Int vector2Int = manager.playerToGridPosition(transform.position);
+        
         switch (side)
         {
             case 0:
@@ -181,7 +186,8 @@ public class Player : MonoBehaviour
                 Debug.Log("Side not in [0,4]");
                 break;
         }
-
+        
+        
 
         TileSelector newTile = mover.InstantiateNewTile(vector2Int.x, vector2Int.y);
 
@@ -192,6 +198,9 @@ public class Player : MonoBehaviour
             Destroy(newTile.gameObject);
             return;
         }
+        GameObject moveCol = Instantiate(moveCollider);
+        moveCol.transform.position = new Vector3(vector2Int.x, 0, vector2Int.y);
+        moveCol.transform.Rotate(0.0f, side % 2 == 0 ? 0 : 90, 0);
 
         GridMover.Direction direction = (GridMover.Direction)manager.getPlayerSide(transform.position);
         FindObjectOfType<GridMover>().MoveTiles(tiles, direction);

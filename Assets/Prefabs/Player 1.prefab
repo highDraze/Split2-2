@@ -232,6 +232,8 @@ MonoBehaviour:
   goalGrabbed: 0
   invisibilityCooldown: 5
   playerNumber: 0
+  moveCollider: {fileID: 7954871100265784134, guid: 7cea9c5e46b1cde4a84ea821fe7dee8c,
+    type: 3}
   activePlayerMove: 1
 --- !u!54 &-4908785820247906922
 Rigidbody:
